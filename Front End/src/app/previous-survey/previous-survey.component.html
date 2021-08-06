@@ -1,0 +1,13 @@
+
+<app-navbar></app-navbar>
+<div class="container mt-4">
+    <div *ngFor = "let survey of surveys">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">{{survey.name}}</h5>
+          <p class="card-text">{{survey.description}}</p>
+          <a href="analysis" class="btn btn-primary mt-4" >View Analysis</a>
+          <a href="#" class="btn btn-primary mt-4">Link</a>
+        </div>
+      </div>
+    </div>
