@@ -1,5 +1,5 @@
 <app-navbar></app-navbar>
-<h2>Pending Surveys</h2>
+<!-- <h2>Pending Surveys</h2>
 <div class="card row mt-4 justify-content-center">
     <div class="card-header">
       Survey Expert
@@ -9,4 +9,50 @@
       <p class="card-text">Feedback for the Prep Up sessions Conducted</p>
       <a href="#" class="btn btn-primary">Review</a>
     </div>
-  </div>
+  </div> -->
+
+  <div class="container mt-4">
+    <div *ngFor = "let survey of surveys">
+      <div class="card my-2">
+        <div class="card-body">
+          <h5 class="card-title ">{{survey.name}}</h5>
+          <p class="card-text ">{{survey.description}}
+            <span class=" position-absolute translate-middle-y end-0 mb-4">
+            <a href="giveSurvey" class="btn btn-primary border-light border-2 mx-2" > Give Survey </a> 
+          </span>
+        </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="container mt-4 border-light border-2 mx-2">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Sr. No.</th>
+          <th scope="col">First</th>
+          <th scope="col">Last</th>
+          <th scope="col">Handle</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td>Jacob</td>
+          <td>Thornton</td>
+          <td>@fat</td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2">Larry the Bird</td>
+          <td>@twitter</td>
+        </tr>
+      </tbody>
+    </table>
+  </div> -->

@@ -20,6 +20,7 @@ import { SurveyAnalysisComponent } from './survey-analysis/survey-analysis.compo
 import { UserHomeComponent } from './user-home/user-home.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { SurveyDisplayComponent } from './survey-display/survey-display.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     SurveyAnalysisComponent,
     UserHomeComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    SurveyDisplayComponent
   ],
   imports: [
     BrowserModule,
