@@ -21,6 +21,11 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { LoginComponent } from './login/login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SurveyDisplayComponent } from './survey-display/survey-display.component';
+import { TextAreaComponent } from './Form Components/text-area/text-area.component';
+import { RadioButtonComponent } from './Form Components/radio-button/radio-button.component';
+import { CheckboxComponent } from './Form Components/checkbox/checkbox.component';
+import { DropDownComponent } from './Form Components/drop-down/drop-down.component';
+import { TextBoxComponent } from './Form Components/text-box/text-box.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +37,12 @@ import { SurveyDisplayComponent } from './survey-display/survey-display.componen
     UserHomeComponent,
     LoginComponent,
     NavbarComponent,
-    SurveyDisplayComponent
+    SurveyDisplayComponent,
+    TextAreaComponent,
+    RadioButtonComponent,
+    CheckboxComponent,
+    DropDownComponent,
+    TextBoxComponent
   ],
   imports: [
     BrowserModule,
