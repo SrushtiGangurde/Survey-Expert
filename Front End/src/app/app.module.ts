@@ -26,6 +26,8 @@ import { RadioButtonComponent } from './Form Components/radio-button/radio-butto
 import { CheckboxComponent } from './Form Components/checkbox/checkbox.component';
 import { DropDownComponent } from './Form Components/drop-down/drop-down.component';
 import { TextBoxComponent } from './Form Components/text-box/text-box.component';
+// import { MaterialModule } from './material/material.module';
+
 
 @NgModule({
   declarations: [
@@ -56,24 +58,13 @@ import { TextBoxComponent } from './Form Components/text-box/text-box.component'
     MatButtonModule,
     MatCheckboxModule,
     MatIconModule,
+    // MaterialModule
   ],
   
   providers: [],
 
   bootstrap: [AppComponent,    
-    AdminHomeComponent,
-    SurveyCreationComponent,
-    PreviousSurveyComponent,
-    SurveyAnalysisComponent,
-    UserHomeComponent,
-    LoginComponent,
-    NavbarComponent,
-    SurveyDisplayComponent,
-    TextAreaComponent,
-    RadioButtonComponent,
-    CheckboxComponent,
-    DropDownComponent,
-    TextBoxComponent],
+  ],
 
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
