@@ -55,10 +55,25 @@ import { TextBoxComponent } from './Form Components/text-box/text-box.component'
     MatFormFieldModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatIconModule
+    MatIconModule,
   ],
+  
   providers: [],
-  bootstrap: [AppComponent],
+
+  bootstrap: [AppComponent,    
+    AdminHomeComponent,
+    SurveyCreationComponent,
+    PreviousSurveyComponent,
+    SurveyAnalysisComponent,
+    UserHomeComponent,
+    LoginComponent,
+    NavbarComponent,
+    SurveyDisplayComponent,
+    TextAreaComponent,
+    RadioButtonComponent,
+    CheckboxComponent,
+    DropDownComponent,
+    TextBoxComponent],
 
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

@@ -1,19 +1,27 @@
 
 <app-navbar></app-navbar>
-
-
 <div class="container mt-4">
-    <div *ngFor = "let survey of surveys">
-      <div class="card my-2">
-        <div class="card-body">
-          <h5 class="card-title">{{survey.name}}</h5>
-          <p class="card-text">{{survey.description}}
-            <span class=" position-absolute translate-middle-y end-0 ">
-            <a href="analysis" class="btn btn-primary border-light border-2 mx-2" > View Analysis </a>    
-            <a href="#" class="btn btn-primary border-light border-2 mx-2"> Link </a></span>
-        </p>
+<div class="card">
+  <h4 class="card-header">Your Previous Surveys</h4>
+  <div class="card-body">
+    <div class="container mt-4">
+      <div *ngFor = "let survey of surveys">
+        <div class="card my-2">
+          <div class="card-body">
+            <h5 class="card-title">{{survey.name}}</h5>
+            <p class="card-text">{{survey.description}}
+              <span class=" position-absolute translate-middle-y end-0 ">
+              <a href="analysis" class="btn btn-primary border-light border-2 mx-2" > View Analysis </a>    
+              <a href="#" class="btn btn-primary border-light border-2 mx-2"> Export Results </a>
+              <a href="#" class="btn btn-primary border-light border-2 mx-2"> Link </a>
+            </span>
+          </p>
+          </div>
         </div>
       </div>
-    </div>
-    <br>
-    <a class="btn btn-primary backBtn pull-left" type="button" href="adminHome">Back</a>
+      <br>
+      <a class="btn btn-primary backBtn pull-left" type="button" href="adminHome">Back</a>
+  </div>
+</div>
+</div>
+

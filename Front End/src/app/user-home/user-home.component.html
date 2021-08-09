@@ -10,20 +10,28 @@
       <a href="#" class="btn btn-primary">Review</a>
     </div>
   </div> -->
-
   <div class="container mt-4">
-    <div *ngFor = "let survey of surveys">
-      <div class="card my-2">
-        <div class="card-body">
-          <h5 class="card-title ">{{survey.name}}</h5>
-          <p class="card-text ">{{survey.description}}
-            <span class=" position-absolute translate-middle-y end-0 mb-4">
-            <a href="giveSurvey" class="btn btn-primary border-light border-2 mx-2" > Give Survey </a> 
-          </span>
-        </p>
+    <div class="card">
+      <h4 class="card-header">Your Pending Surveys</h4>
+      <div class="card-body">
+        <div class="container mt-4">
+          <div *ngFor = "let survey of surveys">
+            <div class="card my-2">
+              <div class="card-body">
+                <h5 class="card-title ">{{survey.name}}</h5>
+                <p class="card-text ">{{survey.description}}
+                  <span class=" position-absolute translate-middle-y end-0 mb-4">
+                  <a href="giveSurvey" class="btn btn-primary border-light border-2 mx-2" > Give Survey </a> 
+                </span>
+              </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
+  </div>
+  
 
     <!-- <div class="container mt-4 border-light border-2 mx-2">
     <table class="table">
