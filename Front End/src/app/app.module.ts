@@ -10,6 +10,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -26,6 +27,7 @@ import { RadioButtonComponent } from './Form Components/radio-button/radio-butto
 import { CheckboxComponent } from './Form Components/checkbox/checkbox.component';
 import { DropDownComponent } from './Form Components/drop-down/drop-down.component';
 import { TextBoxComponent } from './Form Components/text-box/text-box.component';
+import { CreateSurveyComponent } from './create-survey/create-survey.component';
 // import { MaterialModule } from './material/material.module';
 
 
@@ -44,7 +46,8 @@ import { TextBoxComponent } from './Form Components/text-box/text-box.component'
     RadioButtonComponent,
     CheckboxComponent,
     DropDownComponent,
-    TextBoxComponent
+    TextBoxComponent,
+    CreateSurveyComponent
   ],
   imports: [
     BrowserModule,
@@ -58,14 +61,15 @@ import { TextBoxComponent } from './Form Components/text-box/text-box.component'
     MatButtonModule,
     MatCheckboxModule,
     MatIconModule,
+    ReactiveFormsModule
     // MaterialModule
   ],
   
   providers: [],
 
-  bootstrap: [AppComponent,    
-  ],
+  bootstrap: [AppComponent,],
 
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
+
 export class AppModule { }

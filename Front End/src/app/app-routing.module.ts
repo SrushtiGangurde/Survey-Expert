@@ -7,6 +7,7 @@ import { SurveyAnalysisComponent } from './survey-analysis/survey-analysis.compo
 import { SurveyCreationComponent } from './survey-creation/survey-creation.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { SurveyDisplayComponent} from './survey-display/survey-display.component'
+import { CreateSurveyComponent } from './create-survey/create-survey.component';
 
 const routes: Routes = [
   {path : '', redirectTo : 'adminHome',pathMatch : 'full'},
@@ -16,7 +17,8 @@ const routes: Routes = [
   {path : 'previousSurvey', component : PreviousSurveyComponent},
   {path : 'analysis', component : SurveyAnalysisComponent},
   {path : 'userHome', component : UserHomeComponent},
-  {path : 'giveSurvey', component : SurveyDisplayComponent}
+  {path : 'giveSurvey', component : SurveyDisplayComponent},
+  {path : 'createSurvey', component : CreateSurveyComponent},
 ];
 
 @NgModule({
