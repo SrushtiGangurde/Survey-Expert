@@ -31,7 +31,6 @@ import { CreateSurveyComponent } from './create-survey/create-survey.component';
 import { QuestionComponent } from './question/question.component';
 import { AddQuestionsComponent } from './add-questions/add-questions.component';
 import { UserNavComponent } from './user-nav/user-nav.component';
-// import { MaterialModule } from './material/material.module';
 
 
 @NgModule({
@@ -68,7 +67,7 @@ import { UserNavComponent } from './user-nav/user-nav.component';
     MatCheckboxModule,
     MatIconModule,
     ReactiveFormsModule
-    // MaterialModule
+
   ],
   
   providers: [],

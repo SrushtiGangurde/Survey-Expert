@@ -16,7 +16,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { home } from 'src/model/home';
-
+import { option } from 'src/model/option';
 
 @Component({
   selector: 'app-add-questions',
@@ -25,7 +25,9 @@ import { home } from 'src/model/home';
 })
 export class AddQuestionsComponent implements OnInit {
   home=new home()
+  option=new option()
   dataarray:home[]=[];
+  optionarray:option[]=[];
   constructor() { }
 
   ngOnInit() {
@@ -39,9 +41,20 @@ export class AddQuestionsComponent implements OnInit {
     this.dataarray.push(this.home);
   }
 
+  addOption()
+  {
+    this.option=new option()
+    this.optionarray.push(this.option);
+  }
+
   removeForm(index)
   {
-    this.dataarray.splice(index);
+    this.dataarray.splice(index,1);
+  }
+
+  removeOption(index)
+  {
+    this.optionarray.splice(index,1);
   }
 
   onsubmit()
@@ -50,3 +63,10 @@ export class AddQuestionsComponent implements OnInit {
   }
 
 }
+
+
+// <div class="form-row" *ngFor="let opt of optionarray; let j=index">
+// <label>Options</label>
+// <input type="text" class="form-control" name="name{{j}}" [(ngModel)]="opt.name">
+// <div (click)="addOption()" class="btn btn-success btn-sm">Add Question</div> 
+// </div>

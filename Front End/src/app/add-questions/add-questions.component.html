@@ -11,34 +11,83 @@
     <mat-grid-tile>2</mat-grid-tile>
 </mat-grid-list>
  -->
+ <app-navbar></app-navbar>
+ 
+ <div class="container mt-4">
+    <div class="card">
+      <h4 class="card-header">Enter Your Survey Details !</h4>
+      <div class="card-body">
+
+
  <form (ngSubmit)="onsubmit()">
     <div class="container">
+
+        <div class="mb-3">
+            <label for="question" class="form-label">Enter Survey Name</label>
+            <input type="text" class="form-control" id="surveyName" aria-describedby="emailHelp">
+          </div>
+
+          <div class="mb-3">
+            <label for="question" class="form-label">Enter Survey Description</label>
+            <input type="textarea" class="form-control" id="surveyDesc" aria-describedby="emailHelp">
+          </div>
+
+          <!-- dynamic part -->
+
         <div class="form-row" *ngFor="let obj of dataarray; let i=index">
-            
+            <div class="card my-2">
+                <div class="card-body">
+                    <h6 class="card-header">Question 1</h6>  
+                    <div class="row mt-4 mx-2">
+                    
             <div class="form-group col-md-4">
-                <label>Name</label>
+                <label>Question</label>
                 <input type="text" class="form-control" name="name{{i}}" [(ngModel)]="obj.name">
          
             </div>
-            <div class="form-group col-md-4">
-                <label>Salary</label>
-                <input type="text" class="form-control" name="salary{{i}}" [(ngModel)]="obj.salary">
-        
-            </div>
-            <div class="form-group col-md-2">
-                <label>Age</label>
-                <input type="text" class="form-control" name="age{{i}}" [(ngModel)]="obj.age">
-                
+
+            <div class="form-group col-md-2" >
+                <form-field>
+                    <label>Question Type</label>
+                    <select class="form-select">
+                      <option value="textbox">Text Box</option>
+                      <option value="radio">Radio Buttons</option>
+                      <option value="checkbox">Check Box</option>
+                      <option value="dropdown">Drop Down</option>
+                      <option value="textarea">Text Area</option>
+                    </select>
+                  </form-field>
               </div>
-              <div class="form-group col-md-2" *ngIf="i!=0">
-                  <span (click)="removeForm(i)" class="btn btn-danger">-</span> 
-                  
+            </div> <br>
+            
+            <div class="form-group col-md-2 ms-4">
+            <div class="row mt-4 me-2">
+                <div class="form-row" *ngFor="let opt of dataarray; let j=index">
+                <label>Options</label>
+                <input type="text" class="form-control" name="age{{j}}" [(ngModel)]="opt.age">
+                <div (click)="addForm()" class="btn btn-success btn-sm">Add Question</div> 
+              </div>
+            </div>
+        </div>
+
+        
+              <div class="form-group col-md-2 position" *ngIf="i!=0">
+                  <span (click)="removeForm(i)" class="btn btn-danger btn-sm position-absolute top-0 end-0 ">Delete</span> 
                 </div>
-               
+
+
           </div>
-          <!-- <app-radio></app-radio> -->
-          <span (click)="addForm()" class="btn btn-success">Add Field</span>   
-          <button class="btn btn-primary">Submit</button>
+          </div>
+        </div>
     </div>
+        <br>
+          <span (click)="addForm()" class="btn btn-success ">Add Question</span> 
+          &nbsp;  
+          <button class="btn btn-primary">Submit</button>
       
       </form>
+
+           </div>
+        </div>
+    </div>
+ 
