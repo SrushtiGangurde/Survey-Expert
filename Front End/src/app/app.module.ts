@@ -28,6 +28,9 @@ import { CheckboxComponent } from './Form Components/checkbox/checkbox.component
 import { DropDownComponent } from './Form Components/drop-down/drop-down.component';
 import { TextBoxComponent } from './Form Components/text-box/text-box.component';
 import { CreateSurveyComponent } from './create-survey/create-survey.component';
+import { QuestionComponent } from './question/question.component';
+import { AddQuestionsComponent } from './add-questions/add-questions.component';
+import { UserNavComponent } from './user-nav/user-nav.component';
 // import { MaterialModule } from './material/material.module';
 
 
@@ -47,7 +50,10 @@ import { CreateSurveyComponent } from './create-survey/create-survey.component';
     CheckboxComponent,
     DropDownComponent,
     TextBoxComponent,
-    CreateSurveyComponent
+    CreateSurveyComponent,
+    QuestionComponent,
+    AddQuestionsComponent,
+    UserNavComponent
   ],
   imports: [
     BrowserModule,

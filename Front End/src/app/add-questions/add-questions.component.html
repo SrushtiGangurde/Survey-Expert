@@ -1,0 +1,44 @@
+<!-- <app-header></app-header>
+
+<div class="mt-4">
+    <div class="row align-items-center">
+        <h2 class="text-center mt-4">Create Prep up session Survey</h2>
+    </div>    
+</div>
+
+<mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>1</mat-grid-tile>
+    <mat-grid-tile>2</mat-grid-tile>
+</mat-grid-list>
+ -->
+ <form (ngSubmit)="onsubmit()">
+    <div class="container">
+        <div class="form-row" *ngFor="let obj of dataarray; let i=index">
+            
+            <div class="form-group col-md-4">
+                <label>Name</label>
+                <input type="text" class="form-control" name="name{{i}}" [(ngModel)]="obj.name">
+         
+            </div>
+            <div class="form-group col-md-4">
+                <label>Salary</label>
+                <input type="text" class="form-control" name="salary{{i}}" [(ngModel)]="obj.salary">
+        
+            </div>
+            <div class="form-group col-md-2">
+                <label>Age</label>
+                <input type="text" class="form-control" name="age{{i}}" [(ngModel)]="obj.age">
+                
+              </div>
+              <div class="form-group col-md-2" *ngIf="i!=0">
+                  <span (click)="removeForm(i)" class="btn btn-danger">-</span> 
+                  
+                </div>
+               
+          </div>
+          <!-- <app-radio></app-radio> -->
+          <span (click)="addForm()" class="btn btn-success">Add Field</span>   
+          <button class="btn btn-primary">Submit</button>
+    </div>
+      
+      </form>
