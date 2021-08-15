@@ -11,13 +11,19 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { SurveyDisplayComponent} from './survey-display/survey-display.component'
 import { CreateSurveyComponent } from './create-survey/create-survey.component';
 import { AddQuestionsComponent } from './add-questions/add-questions.component';
+import { AuthGuard } from './services/auth.guard';
 
 const routes: Routes = [
   {path : '', redirectTo : 'dashboard',pathMatch : 'full'},
   {path : 'dashboard', component : DashboardComponent},
   {path : 'login', component : LoginComponent},
   {path : 'userLogin', component : UserLoginComponent},
-  {path : 'adminHome', component : AdminHomeComponent},
+  {
+    path : 'adminHome', 
+    component : AdminHomeComponent,
+    canActivate :  [AuthGuard],
+
+  },
   {path : 'surveyCreation', component : AddQuestionsComponent},
   {path : 'previousSurvey', component : PreviousSurveyComponent},
   {path : 'analysis', component : SurveyAnalysisComponent},

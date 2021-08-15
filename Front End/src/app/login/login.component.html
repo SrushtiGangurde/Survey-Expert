@@ -6,15 +6,15 @@
       <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
         <mat-tab label="Sign In">
             <mat-card-content>
-              <form action="">
+              <form (onSubmit) = "onSubmit()">
                 <mat-form-field>
                   <input
                     matInput
                     placeholder="Email"
                     required
                     name="email"
-                    ngModel
-                    #email="ngModel">
+                    [(ngModel)]="credentials.email">
+                    
                     <mat-error *ngIf="email.invalid">Email is required</mat-error>
                   <mat-icon matSuffix>email</mat-icon>
                 </mat-form-field>
@@ -27,8 +27,7 @@
                     required
                     minlength="6"
                     name="password"
-                    ngModel
-                    #password="ngModel">
+                    [(ngModel)]="credentials.password">
                     <mat-error
                       *ngIf="password.errors && password.errors.required">
                       Password is required
@@ -46,6 +45,7 @@
                   class="login-button" href="adminHome">
                   Sign In
                 </a>
+
   
                 <!-- <button
                   mat-raised-button
@@ -53,6 +53,8 @@
                   Login with Google
                 </button> -->
               </form>
+              <h4>{{credentials | json}}</h4>
+
             </mat-card-content>
         </mat-tab>
 
