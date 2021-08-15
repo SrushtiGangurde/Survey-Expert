@@ -30,7 +30,7 @@
                     
             <div class="form-group col-md-4">
                 <label>Question</label>
-                <input type="text" class="form-control" name="name{{i}}" [(ngModel)]="obj.name">
+                <input type="text" class="form-control" name="name{{i}}" [(ngModel)]="obj.answer">
          
             </div>
 
@@ -51,17 +51,18 @@
             <div class="form-group col-md-2 ms-4">
             <div class="row mt-4 me-2">
                 <div class="form-row" *ngFor="let opt of dataarray; let j=index">
-                <label>Options {{j}}</label>
-                <input type="text" class="form-control" name="age{{j}}" [(ngModel)]="opt.age"><br>
-                <div (click)="addForm()" class="btn btn-success btn-sm">Add Question</div> 
+                    <label>Options</label>
+                    <input type="text" class="form-control" name="name{{j}}" [(ngModel)]="opt.answer">
+                    <div (click)="addOption()" class="btn btn-success btn-sm">Add Option</div> 
+                    </div>
               
 
-              <div class="form-group col-md-2 position" *ngIf="j!=0">
+              <div class="form-group col-md-2 position" *ngIf="i!=0">
                 <span (click)="removeForm(i)" class="btn btn-danger btn-sm position-absolute top-0 end-0 ">Delete</span> 
               </div>
             </div>
             </div>
-        </div>
+
 
         
               <div class="form-group col-md-2 position" *ngIf="i!=0">

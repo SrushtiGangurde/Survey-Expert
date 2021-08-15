@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { surveyInfo } from 'src/model/surveyInfo';
+import { survey } from 'src/model/survey';
 
 @Component({
   selector: 'app-previous-survey',
@@ -8,7 +8,7 @@ import { surveyInfo } from 'src/model/surveyInfo';
 })
 export class PreviousSurveyComponent implements OnInit {
 
-  surveys : surveyInfo [] = [];
+  surveys : survey [] = [];
 
   constructor() { }
 
@@ -18,9 +18,7 @@ export class PreviousSurveyComponent implements OnInit {
   
   initProperties(){
     this.surveys=[
-      {name: 'Survey1', description: 'descibes survey1'},
-      {name: 'Survey2', description: 'descibes survey2'},
-      {name: 'Survey3', description: 'descibes survey3'}
+      {surveyName: 'Survey1', surveyDesc: 'descibes survey1', surveyId: 1, lastEditedBy: 5, link : 'abcsurvey', createdDate: '12/8/2021'},
     ]
   }
 

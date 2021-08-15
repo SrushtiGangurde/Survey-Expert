@@ -11,7 +11,7 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { SurveyDisplayComponent} from './survey-display/survey-display.component'
 import { CreateSurveyComponent } from './create-survey/create-survey.component';
 import { AddQuestionsComponent } from './add-questions/add-questions.component';
-import { AuthGuard } from './services/auth.guard';
+import { AuthGuard } from 'src/services/auth.guard';
 
 const routes: Routes = [
   {path : '', redirectTo : 'dashboard',pathMatch : 'full'},

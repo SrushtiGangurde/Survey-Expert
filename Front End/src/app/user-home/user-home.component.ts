@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { surveyInfo } from 'src/model/surveyInfo';
+import { survey } from 'src/model/survey';
 
 @Component({
   selector: 'app-user-home',
@@ -9,7 +9,7 @@ import { surveyInfo } from 'src/model/surveyInfo';
 
 export class UserHomeComponent implements OnInit {
 
-  surveys : surveyInfo [] = [];
+  surveys : survey [] = [];
 
   constructor() { }
 
@@ -19,7 +19,8 @@ export class UserHomeComponent implements OnInit {
   
   initProperties(){
     this.surveys=[
-      {name: 'Prep up Session Survey', description: 'Feedback for the Prep Up sessions Conducted'},
+      {surveyName: 'Prep up Session Survey', surveyDesc: 'Feedback for the Prep Up sessions Conducted', 
+      surveyId: 1, lastEditedBy: 5, link : 'abcsurvey', createdDate: '12/8/2021'},
       
     ]
   }
