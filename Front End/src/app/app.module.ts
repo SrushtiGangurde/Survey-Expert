@@ -33,6 +33,7 @@ import { AddQuestionsComponent } from './add-questions/add-questions.component';
 import { UserNavComponent } from './user-nav/user-nav.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -70,7 +71,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     MatButtonModule,
     MatCheckboxModule,
     MatIconModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
 
   ],
   
