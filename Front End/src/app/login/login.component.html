@@ -6,7 +6,7 @@
       <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
         <mat-tab label="Sign In">
             <mat-card-content>
-              <form (onSubmit) = "onSubmit()">
+              <form (onSubmit) = "onSignIn">
                 <mat-form-field>
                   <input
                     matInput
@@ -53,29 +53,48 @@
                   Login with Google
                 </button> -->
               </form>
-              <h4>{{credentials | json}}</h4>
+              <!-- <h4>{{credentials | json}}</h4> -->
 
             </mat-card-content>
         </mat-tab>
 
         <mat-tab label="Sign Up">
+
           <mat-card-content>
-            <form action="">
+
+            <form (onSubmit) = "registerUser">
+
               <mat-form-field>
                 <input
                   matInput
-                  placeholder="User Name"
+                  placeholder="First Name"
                   required
-                  name="username"
+                  name="firstname"
                   ngModel
                   #username="ngModel">
                 <mat-icon matSuffix>perm_identity</mat-icon>
                 <mat-error
                   *ngIf="username.invalid">
-                  Username is required
+                  First Name is required
                 </mat-error>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <input
+                    matInput
+                    placeholder="Last Name"
+                    required
+                    name="last name"
+                    ngModel
+                    #username="ngModel">
+                  <mat-icon matSuffix>perm_identity</mat-icon>
+                  <mat-error
+                    *ngIf="username.invalid">
+                    Last Name is required
+                  </mat-error>
+                </mat-form-field>
   
-              </mat-form-field>
+              <!-- </mat-form-field> -->
               <mat-form-field>
                 <input
                   matInput

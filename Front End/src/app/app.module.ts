@@ -58,7 +58,8 @@ import { HttpClientModule } from '@angular/common/http';
     AddQuestionsComponent,
     UserNavComponent,
     UserLoginComponent,
-    DashboardComponent
+    DashboardComponent,
+  
   ],
   imports: [
     BrowserModule,
