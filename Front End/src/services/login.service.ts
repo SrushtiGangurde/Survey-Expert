@@ -1,15 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
+import baseUrl from './base-url';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-
-  //base url
-  url  = "https://localhost:8080/"
 
   constructor(private http : HttpClient) { }
 
@@ -18,7 +17,7 @@ export class LoginService {
   
   generateToken = (credentials) => {
     // token generate
-    return this.http.post(`${this.url}/token`, credentials)
+    return this.http.post(`${baseUrl}/token`, credentials)
   }
 
 

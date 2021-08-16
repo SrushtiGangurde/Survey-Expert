@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/services/login.service';
+import { SignupService } from 'src/services/signup.service';
 
 @Component({
   selector: 'app-login',
@@ -13,12 +14,21 @@ export class LoginComponent implements OnInit {
     password : '',
   }
 
-  constructor(private loginService : LoginService) { }
+  public user = {
+    firstname : '',
+    lastname : '',
+    email : '',
+    password: '',
+    repassword: '',
+  }
+
+
+  constructor(private loginService : LoginService, private signupService : SignupService) { }
 
   ngOnInit(): void {
   }
 
-  onSubmit = ()=>{
+  onSignIn = ()=>{
 
     console.log("form is submitted");
 
@@ -46,5 +56,33 @@ export class LoginComponent implements OnInit {
     }
     
   }
+  
+  // register user
+  registerUser = () => {
+
+    console.log(this.user);
+
+    if(this.user.firstname == '' || this.user.lastname == ''){
+      alert('username is required!');
+      return;
+    }
+
+    this.signupService.registerUser(this.user).subscribe(
+      (success) => {
+        // success
+        console.log(success)
+        alert("success");
+      },
+      (error) => {
+        // error
+        console.log(error);
+        alert("something went wrong!");
+      }
+    )
+
+
+
+  }
 
 }
+
