@@ -51,7 +51,7 @@
                             <div class="form-row" *ngFor="let opt of dataarray; let j=index">
                                 <label>Options</label>
                                 <input type="text" class="form-control" name="name{{j}}" [(ngModel)]="opt.answer">
-                                <div (click)="addOption()" class="btn btn-success btn-sm">Add Option</div> 
+                                <div (click)="addForm()" class="btn btn-success btn-sm">Add Option</div> 
                             </div>
                           
 

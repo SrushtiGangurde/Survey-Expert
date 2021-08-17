@@ -12,12 +12,12 @@ export class ViewSurveysService {
 
   private url: string = "https://localhost:8080/survey/allSurveys";
 
-  constructor(private http:HttpClient) { };
+  constructor(private http:HttpClient) { }
 
-  getSurveys() {
+  getSurveys(){
     return this.http.get<survey[]>(this.url);//.pipe(catchError(this.erroHandler));
   }
 
-   erroHandler(error: HttpErrorResponse) {
-   return throwError(error.message || 'server Error');}
+  //  erroHandler(error: HttpErrorResponse) {
+  //  return throwError(error.message || 'server Error');}
 }

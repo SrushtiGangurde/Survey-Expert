@@ -16,9 +16,9 @@ export class PreviousSurveyComponent implements OnInit {
 
   ngOnInit() {
     this._ViewSurveysService.getSurveys()
-      .subscribe(data => this.surveys = data,
-                error => this.errorMsg = error);
-  }
+      .subscribe((data: any) => this.surveys = data);
 
+      console.log(this.surveys);
+  }
 
 }
