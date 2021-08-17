@@ -1,4 +1,4 @@
-export class survey {
+export interface survey {
     surveyId : number;
     surveyName : string;
     surveyDesc : string;
