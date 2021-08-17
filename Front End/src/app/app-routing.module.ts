@@ -12,11 +12,13 @@ import { SurveyDisplayComponent} from './survey-display/survey-display.component
 import { CreateSurveyComponent } from './create-survey/create-survey.component';
 import { AddQuestionsComponent } from './add-questions/add-questions.component';
 import { AuthGuard } from 'src/services/auth.guard';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   {path : '', redirectTo : 'dashboard',pathMatch : 'full'},
   {path : 'dashboard', component : DashboardComponent},
   {path : 'login', component : LoginComponent},
+  {path : 'signup', component : SignupComponent},
   {path : 'userLogin', component : UserLoginComponent},
   {
     path : 'adminHome', 
