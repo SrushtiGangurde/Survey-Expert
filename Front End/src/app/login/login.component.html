@@ -1,159 +1,45 @@
-<div class="login-page">
-    <mat-card class="mat-elevation-z12">
-      <mat-card-title style="text-align:center;">
-        <img class="img-thumbnail rounded-circle border border-primary" style="width: 50px; height: 50px;" src="assets\img\checkbox-line-icon-survey-choice-sign-vector-business-review-symbol-gradient-button-design-colorful-geometric-shapes-131349549.jpg">
-        Welcome to Survey Expert</mat-card-title>
-      <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
-        <mat-tab label="Sign In">
-            <mat-card-content>
-              <form (onSubmit) = "onSignIn">
-                <mat-form-field>
-                  <input
-                    matInput
-                    placeholder="Email"
-                    required
-                    name="email"
-                    [(ngModel)]="credentials.email">
-                    
-                    <mat-error *ngIf="email.invalid">Email is required</mat-error>
-                  <mat-icon matSuffix>email</mat-icon>
-                </mat-form-field>
-                
-                <mat-form-field>
-                  <input
-                    matInput
-                    placeholder="Password"
-                    type="password"
-                    required
-                    minlength="6"
-                    name="password"
-                    [(ngModel)]="credentials.password">
-                    <mat-error
-                      *ngIf="password.errors && password.errors.required">
-                      Password is required
-                    </mat-error>
-                    <mat-error
-                      *ngIf="password.errors && password.errors.minlength">
-                      Password must be of length 6
-                    </mat-error>
-                  <mat-icon matSuffix>lock</mat-icon>
-                </mat-form-field>
-                <mat-checkbox>Remember Me!</mat-checkbox>
-                <a
-                  mat-raised-button
-                  color="primary"
-                  class="login-button" href="adminHome">
-                  Sign In
-                </a>
+<!-- // Login Page -->
+<app-user-nav></app-user-nav>
 
+<section class="vh-100">
+  <div class="container py-5">
+  <div class="row d-flex align-items-center justify-content-center h-100">
+    <div class="col-md-8 col-lg-7 col-xl-6">
+      <img src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-login-form/draw2.png" class="img-fluid"
+      alt="Sample image">   
+     </div>
+  <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+  <form (submit) = "onSignIn()">
+    <!-- Email input -->
+    <div class="form-outline mb-4">
+      <label class="form-label" for="form1Example13">Email Address</label>
+      <input 
+      type="email" 
+      id="form2Example1" 
+      class="form-control" 
+      name="email"
+      required
+      [(ngModel)]="credentials.username"
+      >
+    </div>
   
-                <!-- <button
-                  mat-raised-button
-                  class="login-button">
-                  Login with Google
-                </button> -->
-              </form>
-              <!-- <h4>{{credentials | json}}</h4> -->
-
-            </mat-card-content>
-        </mat-tab>
-
-        <mat-tab label="Sign Up">
-
-          <mat-card-content>
-
-            <form (onSubmit) = "registerUser">
-
-              <mat-form-field>
-                <input
-                  matInput
-                  placeholder="First Name"
-                  required
-                  name="firstname"
-                  ngModel
-                  #username="ngModel">
-                <mat-icon matSuffix>perm_identity</mat-icon>
-                <mat-error
-                  *ngIf="username.invalid">
-                  First Name is required
-                </mat-error>
-                </mat-form-field>
-
-                <mat-form-field>
-                  <input
-                    matInput
-                    placeholder="Last Name"
-                    required
-                    name="last name"
-                    ngModel
-                    #username="ngModel">
-                  <mat-icon matSuffix>perm_identity</mat-icon>
-                  <mat-error
-                    *ngIf="username.invalid">
-                    Last Name is required
-                  </mat-error>
-                </mat-form-field>
+    <!-- Password input -->
+    <div class="form-outline mb-4">
+      <label class="form-label" for="form2Example2">Password</label>
+      <input type="password" 
+      id="form2Example2" 
+      class="form-control" 
+      name="password"
+      required
+      [(ngModel)]="credentials.password"
+      />
+    </div>
   
-              <!-- </mat-form-field> -->
-              <mat-form-field>
-                <input
-                  matInput
-                  placeholder="Email"
-                  required
-                  name="email"
-                  ngModel
-                  #email="ngModel">
-                  <mat-error *ngIf="email.invalid">Email is required</mat-error>
-                <mat-icon matSuffix>email</mat-icon>
-              </mat-form-field>
-
-              <mat-form-field>
-                <input
-                  matInput
-                  placeholder="Password"
-                  type="password"
-                  required
-                  minlength="6"
-                  name="password"
-                  ngModel
-                  #password="ngModel">
-                  <mat-error
-                    *ngIf="password.errors && password.errors.required">
-                    Password is required
-                  </mat-error>
-                  <mat-error
-                    *ngIf="password.errors && password.errors.minlength">
-                    Password must be of length 6
-                  </mat-error>
-                <mat-icon matSuffix>lock</mat-icon>
   
-              </mat-form-field>
-              <mat-form-field>
-                  <input
-                  matInput
-                  placeholder="Password"
-                  type="password"
-                  required
-                  minlength="6"
-                  name="repassword"
-                  ngModel
-                  #repassword="ngModel">
-                  <mat-error
-                    *ngIf="repassword.errors && repassword.errors.required">
-                    Re-Enter Password is required
-                  </mat-error>
-                <mat-icon matSuffix>lock</mat-icon>
-              </mat-form-field>
-              <button
-                mat-raised-button
-                color="primary"
-                class="login-button">
-                Sign Up
-              </button>
-            </form>
-          </mat-card-content>
-        </mat-tab>
-      </mat-tab-group>
-    </mat-card>
+    <!-- Submit button -->
+    <button type="submit" class="btn btn-primary btn-block mb-4">Sign in</button>
+  </form>
   </div>
-  
+  </div>
+  </div>
+</section>

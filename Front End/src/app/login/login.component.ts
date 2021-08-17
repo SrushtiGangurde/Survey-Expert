@@ -9,21 +9,16 @@ import { SignupService } from 'src/services/signup.service';
 })
 export class LoginComponent implements OnInit {
 
+  token : string = null;
+
   credentials = {
-    email: '',
+    username: '',
     password : '',
   }
 
-  public user = {
-    firstname : '',
-    lastname : '',
-    email : '',
-    password: '',
-    repassword: '',
-  }
 
 
-  constructor(private loginService : LoginService, private signupService : SignupService) { }
+  constructor(private loginService : LoginService) { }
 
   ngOnInit(): void {
   }
@@ -32,19 +27,33 @@ export class LoginComponent implements OnInit {
 
     console.log("form is submitted");
 
-    if((this.credentials.email != '' && this.credentials.password != '') &&
-    (this.credentials.email != null && this.credentials.password != null) ){
-        console.log("we have to fill the form");
+    if((this.credentials.username != '' && this.credentials.password != '') &&
+    (this.credentials.username != null && this.credentials.password != null) ){
+        // console.log("we have to fill the form");
         this.loginService.generateToken(this.credentials).subscribe(
           (response : any) => {
             // success
-            console.log(response.token);
-            this.loginService.login(response.token);
-            window.location.href = "/adminHome"
+            console.log("success");
+            console.log(response);
+            this.loginService.login(this.credentials);
+            this.loginService.getCurrentUser().subscribe(
+              (user : any) => {
+                this.loginService.setUser(user);
+                console.log(user);
+                // redirect : admin dashboard
+                // rdirect : user dashboard
+              },
+              (error)=>{
+
+              }
+            )
+            // window.location.href = "/adminHome"
 
           },
           (error) => {
             // fail
+            console.log("error");
+
             console.log(error);
           }
         )
@@ -55,33 +64,6 @@ export class LoginComponent implements OnInit {
       
     }
     
-  }
-  
-  // register user
-  registerUser = () => {
-
-    console.log(this.user);
-
-    if(this.user.firstname == '' || this.user.lastname == ''){
-      alert('username is required!');
-      return;
-    }
-
-    this.signupService.registerUser(this.user).subscribe(
-      (success) => {
-        // success
-        console.log(success)
-        alert("success");
-      },
-      (error) => {
-        // error
-        console.log(error);
-        alert("something went wrong!");
-      }
-    )
-
-
-
   }
 
 }
