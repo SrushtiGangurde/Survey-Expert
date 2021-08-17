@@ -11,6 +11,6 @@ export class SignupService {
 
   // register user
   public registerUser(user : any){
-    return this.httpClient.post(`${baseUrl}/adduser/`,user);
+    return this.httpClient.post(baseUrl + "/user/addUser", user);
   }
 }

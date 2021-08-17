@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import baseUrl from './base-url';
 
@@ -13,11 +14,17 @@ export class LoginService {
   constructor(private http : HttpClient) { }
 
 
+  getCurrentUser = () => {
+    return this.http.get(`${baseUrl}/current-user`);
+  }
+
+
   // calling server to generate token
   
-  generateToken = (credentials) => {
+  generateToken(credentials) : Observable<any>{
     // token generate
-    return this.http.post(`${baseUrl}/token`, credentials)
+    return this.http.post(baseUrl + '/generate-token',credentials)
+  
   }
 
 
@@ -45,6 +52,7 @@ export class LoginService {
 
   logout = () => {
     localStorage.removeItem("token");
+    localStorage.removeItem("credentials")
     return true;
   }
 
@@ -53,6 +61,25 @@ export class LoginService {
     return localStorage.getItem("token");
   }
 
+  // set User Details
+  setUser = (credentials) => {
+    localStorage.setItem('credentials', JSON.stringify(credentials))
+  }
 
+  // get User
+  getUser = () => {
+    let userStr = localStorage.getItem("credentials");
+    if(userStr != null){
+      return JSON.parse(userStr);
+    }else{
+      this.logout();
+      return null;
+    }
+  }
 
+  // get User Role
+  getUserRole = () => {
+    let user = this.getUser();
+    return user.authorities[0].authority;
+  }
 }
