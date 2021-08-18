@@ -13,6 +13,7 @@ import { CreateSurveyComponent } from './create-survey/create-survey.component';
 import { AddQuestionsComponent } from './add-questions/add-questions.component';
 import { AuthGuard } from 'src/services/auth.guard';
 import { SignupComponent } from './signup/signup.component';
+import { NormalGuard } from 'src/services/normal.guard';
 
 const routes: Routes = [
   {path : '', redirectTo : 'dashboard',pathMatch : 'full'},
@@ -29,7 +30,7 @@ const routes: Routes = [
   {path : 'surveyCreation', component : AddQuestionsComponent},
   {path : 'previousSurvey', component : PreviousSurveyComponent},
   {path : 'analysis', component : SurveyAnalysisComponent},
-  {path : 'userHome', component : UserHomeComponent},
+  {path : 'userHome', component : UserHomeComponent, canActivate : [NormalGuard]},
   {path : 'giveSurvey', component : SurveyDisplayComponent},
   {path : 'createSurvey', component : CreateSurveyComponent},
   {path : 'addQuestion', component : AddQuestionsComponent},
