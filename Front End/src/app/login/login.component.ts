@@ -18,37 +18,51 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor(private loginService : LoginService) { }
+  constructor(private login : LoginService) { }
 
   ngOnInit(): void {
   }
 
-  onSignIn = ()=>{
+  public onSignIn (){
 
     console.log("form is submitted");
 
     if((this.credentials.username != '' && this.credentials.password != '') &&
     (this.credentials.username != null && this.credentials.password != null) ){
         // console.log("we have to fill the form");
-        this.loginService.generateToken(this.credentials).subscribe(
+        this.login.generateToken(this.credentials).subscribe(
           (response : any) => {
             // success
             console.log("success");
             console.log(response);
-            this.loginService.login(this.credentials);
-            this.loginService.getCurrentUser().subscribe(
+
+            //login
+            this.login.login(response.token);
+
+            this.login.getCurrentUser().subscribe(
               (user : any) => {
-                this.loginService.setUser(user);
+                this.login.setUser(user);
                 console.log(user);
                 // redirect : admin dashboard
-                // rdirect : user dashboard
+                if(this.login.getUserRole()=="ADMIN")
+                {
+                  //admin dashboard
+                  window.location.href = "/adminHome"
+                }
+                else if(this.login.getUserRole()=="NORMAL")
+                {
+                  // rdirect : user dashboard
+                  window.location.href = "/userHome"
+                }
+                else{
+                  this.login.logout();
+                }
+
               },
               (error)=>{
 
               }
             )
-            // window.location.href = "/adminHome"
-
           },
           (error) => {
             // fail

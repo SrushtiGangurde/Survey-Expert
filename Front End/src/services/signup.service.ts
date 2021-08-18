@@ -10,7 +10,7 @@ export class SignupService {
   constructor(private httpClient  :HttpClient) { }
 
   // register user
-  public registerUser(user : any){
+  public addUser(user : any){
     return this.httpClient.post(baseUrl + "/user/addUser", user);
   }
 }
