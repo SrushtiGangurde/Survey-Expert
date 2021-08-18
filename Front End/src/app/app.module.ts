@@ -37,8 +37,8 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { authInterceptorProviders } from 'src/services/auth.interceptor';
 //import { Observable } from 'rxjs';
-
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -79,8 +79,9 @@ import { authInterceptorProviders } from 'src/services/auth.interceptor';
     MatCheckboxModule,
     MatIconModule,
     ReactiveFormsModule,
-    HttpClientModule
-
+    HttpClientModule,
+    MatSnackBarModule,
+    MatToolbarModule,
   ],
   
   providers: [authInterceptorProviders],
