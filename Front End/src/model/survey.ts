@@ -1,3 +1,5 @@
+import { question } from "./question";
+
 export interface survey {
     surveyId : number;
     surveyName : string;
@@ -5,4 +7,5 @@ export interface survey {
     lastEditedBy : number;
     createdDate : string;
     link : any;
+    questions: question[];
 }

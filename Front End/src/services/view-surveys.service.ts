@@ -10,14 +10,11 @@ import { Observable, throwError } from 'rxjs';
 
 export class ViewSurveysService {
 
-  private url: string = "https://localhost:8080/survey/allSurveys";
+  private url: string = "https://localhost:8080/survey/allSurveys"
 
   constructor(private http:HttpClient) { }
 
-  getSurveys(){
-    return this.http.get<survey[]>(this.url);//.pipe(catchError(this.erroHandler));
+  public getSurveys(){
+    return this.http.get<survey[]>(this.url);
   }
-
-  //  erroHandler(error: HttpErrorResponse) {
-  //  return throwError(error.message || 'server Error');}
 }

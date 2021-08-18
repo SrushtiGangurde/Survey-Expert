@@ -1,6 +1,41 @@
+// import { Component, OnInit } from '@angular/core';
+// import { ActivatedRoute } from '@angular/router';
+
+// @Component({
+//   selector: 'app-add-questions',
+//   templateUrl: './add-questions.component.html',
+//   styleUrls: ['./add-questions.component.css']
+// })
+// export class AddQuestionsComponent implements OnInit {
+
+//   //Qid: any;
+//   question ={ 
+//     quiz: {},
+//     content :'',
+//     type :'',
+//     option1 :'',
+//     option2 :'',
+//     option3 :'',
+//     option4 :'',
+//   }
+//   constructor() { 
+
+//   }
+
+//   ngOnInit(): void {
+//   }
+
+// }
+
+
+
+
+
+
+
 import { Component, OnInit } from '@angular/core';
-import { home } from 'src/model/home';
 import { questionOption } from 'src/model/questionOption';
+import { question } from 'src/model/question';
 
 @Component({
   selector: 'app-add-questions',
@@ -8,42 +43,40 @@ import { questionOption } from 'src/model/questionOption';
   styleUrls: ['./add-questions.component.css']
 })
 export class AddQuestionsComponent implements OnInit {
-  //home=new home()
-  option=new questionOption()
-  dataarray:questionOption[]=[];
-  optionarray:questionOption[]=[];
+  question = new question();
+  option = new questionOption();
+  qArray:question[]=[];
+  oArray:questionOption[]=[];
   constructor() { }
 
   ngOnInit() {
-    //this.home=new home()
-    //this.dataarray.push(this.home);
   }
 
   addForm()
   {
-    this.option=new questionOption()
-    this.dataarray.push(this.option);
+    this.question=new question()
+    this.qArray.push(this.question);
   }
 
   addOption()
   {
     this.option=new questionOption()
-    this.optionarray.push(this.option);
+    this.oArray.push(this.option);
   }
 
   removeForm(index)
   {
-    this.dataarray.splice(index,1);
+    this.qArray.splice(index,1);
   }
 
   removeOption(index)
   {
-    this.optionarray.splice(index,1);
+    this.oArray.splice(index,1);
   }
 
   onsubmit()
   {
-    console.log(this.dataarray);
+    console.log(this.qArray);
   }
 
 }

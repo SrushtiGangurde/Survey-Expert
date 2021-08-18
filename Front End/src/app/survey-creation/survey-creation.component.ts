@@ -10,40 +10,40 @@ import { questionOption } from 'src/model/questionOption';
 export class SurveyCreationComponent implements OnInit {
 
   option=new questionOption()
-  dataarray:questionOption[]=[];
-  optionarray:questionOption[]=[];
+  qArray:questionOption[]=[];
+  oArray:questionOption[]=[];
   constructor() { }
 
   ngOnInit() {
     //this.home=new home()
-    //this.dataarray.push(this.home);
+    //this.qArray.push(this.home);
   }
 
   addForm()
   {
     this.option=new questionOption()
-    this.dataarray.push(this.option);
+    this.qArray.push(this.option);
   }
 
   addOption()
   {
     this.option=new questionOption()
-    this.optionarray.push(this.option);
+    this.oArray.push(this.option);
   }
 
   removeForm(index)
   {
-    this.dataarray.splice(index,1);
+    this.qArray.splice(index,1);
   }
 
   removeOption(index)
   {
-    this.optionarray.splice(index,1);
+    this.oArray.splice(index,1);
   }
 
   onsubmit()
   {
-    console.log(this.dataarray);
+    console.log(this.qArray);
   }
 
 
