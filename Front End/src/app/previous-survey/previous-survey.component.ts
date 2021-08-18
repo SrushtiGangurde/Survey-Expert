@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { survey } from 'src/model/survey';
+import { ViewSurveysService } from 'src/services/view-surveys.service';
 
 @Component({
   selector: 'app-previous-survey',
@@ -9,17 +10,15 @@ import { survey } from 'src/model/survey';
 export class PreviousSurveyComponent implements OnInit {
 
   surveys : survey [] = [];
+  public errorMsg: any;
 
-  constructor() { }
+  constructor(private _ViewSurveysService: ViewSurveysService) { }
 
-  ngOnInit(){
-    this.initProperties();
+  ngOnInit() {
+    this._ViewSurveysService.getSurveys()
+      .subscribe(data => this.surveys = data,
+                error => this.errorMsg = error);
   }
-  
-  initProperties(){
-    this.surveys=[
-      {surveyName: 'Survey1', surveyDesc: 'descibes survey1', surveyId: 1, lastEditedBy: 5, link : 'abcsurvey', createdDate: '12/8/2021'},
-    ]
-  }
+
 
 }

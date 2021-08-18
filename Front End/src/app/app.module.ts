@@ -36,6 +36,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { authInterceptorProviders } from 'src/services/auth.interceptor';
+//import { Observable } from 'rxjs';
+
 
 
 @NgModule({
@@ -65,6 +67,7 @@ import { authInterceptorProviders } from 'src/services/auth.interceptor';
   ],
   imports: [
     BrowserModule,
+    // Observable,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
