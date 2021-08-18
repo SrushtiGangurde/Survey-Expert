@@ -33,7 +33,7 @@ import { AddQuestionsComponent } from './add-questions/add-questions.component';
 import { UserNavComponent } from './user-nav/user-nav.component';
 import { UserLoginComponent } from './user-login/user-login.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SignupComponent } from './signup/signup.component';
 import { authInterceptorProviders } from 'src/services/auth.interceptor';
 //import { Observable } from 'rxjs';

@@ -14,14 +14,14 @@ export class LoginService {
   constructor(private http : HttpClient) { }
 
 
-  getCurrentUser = () => {
+  getCurrentUser(){
     return this.http.get(`${baseUrl}/current-user`);
   }
 
 
   // calling server to generate token
   
-  generateToken(credentials) : Observable<any>{
+  public generateToken(credentials) : Observable<any>{
     // token generate
     return this.http.post(baseUrl + '/generate-token',credentials)
   
@@ -29,14 +29,14 @@ export class LoginService {
 
 
   // funtion to login
-  login = (token) => {
+  public login(token){
     localStorage.setItem("token", token);
     return true;
   }
 
 
   // function to check user is loggin or not
-  isLoggedIn = () => {
+  public isLoggedIn(){
     let token = localStorage.getItem("token");
 
     if(token == undefined || token === '' || token == null){
@@ -50,25 +50,25 @@ export class LoginService {
 
   // function to logout
 
-  logout = () => {
+  public logout (){
     localStorage.removeItem("token");
     localStorage.removeItem("credentials")
     return true;
   }
 
   // getting token 
-  getToken = () => {
+  public getToken(){
     return localStorage.getItem("token");
   }
 
   // set User Details
-  setUser = (credentials) => {
-    localStorage.setItem('credentials', JSON.stringify(credentials))
+  public setUser(user){
+    localStorage.setItem('user', JSON.stringify(user))
   }
 
   // get User
-  getUser = () => {
-    let userStr = localStorage.getItem("credentials");
+  public getUser(){
+    let userStr = localStorage.getItem("user");
     if(userStr != null){
       return JSON.parse(userStr);
     }else{
@@ -78,7 +78,7 @@ export class LoginService {
   }
 
   // get User Role
-  getUserRole = () => {
+  public getUserRole(){
     let user = this.getUser();
     return user.authorities[0].authority;
   }
