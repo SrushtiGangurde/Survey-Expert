@@ -9,7 +9,7 @@ import { SignupService } from 'src/services/signup.service';
 export class SignupComponent implements OnInit {
 
 
-  user = {
+  public user = {
     first_name : '',
     last_name : '',
     username : '',
@@ -23,7 +23,7 @@ export class SignupComponent implements OnInit {
 
 
   // register user
-  registerUser = () => {
+  public registerUser() {
 
     console.log(this.user);
 
@@ -32,7 +32,7 @@ export class SignupComponent implements OnInit {
       return;
     }
 
-    this.signupService.registerUser(this.user).subscribe(
+    this.signupService.addUser(this.user).subscribe(
       (success) => {
         // success
         console.log(success)
