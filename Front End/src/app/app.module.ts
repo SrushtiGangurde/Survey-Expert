@@ -41,6 +41,7 @@ import { authInterceptorProviders } from 'src/services/auth.interceptor';
 //import { Observable } from 'rxjs';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { AddSurveyComponent } from './add-survey/add-survey.component';
 
 @NgModule({
   declarations: [
@@ -65,6 +66,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     UserLoginComponent,
     //DashboardComponent,
     SignupComponent,
+    AddSurveyComponent,
   
   ],
   imports: [
