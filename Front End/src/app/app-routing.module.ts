@@ -11,12 +11,13 @@ import { UserHomeComponent } from './user-home/user-home.component';
 import { SurveyDisplayComponent} from './survey-display/survey-display.component'
 import { CreateSurveyComponent } from './create-survey/create-survey.component';
 import { AddQuestionsComponent } from './add-questions/add-questions.component';
+import { AddSurveyComponent } from './add-survey/add-survey.component';
 import { AuthGuard } from 'src/services/auth.guard';
 import { SignupComponent } from './signup/signup.component';
 import { NormalGuard } from 'src/services/normal.guard';
 
 const routes: Routes = [
-  {path : '', redirectTo : 'login',pathMatch : 'full'},
+  {path : '', redirectTo : 'login', pathMatch : 'full'},
   {path : 'login', component : LoginComponent},
   {path : 'signup', component : SignupComponent},
   {path : 'userLogin', component : UserLoginComponent},
@@ -33,6 +34,7 @@ const routes: Routes = [
   {path : 'giveSurvey', component : SurveyDisplayComponent},
   {path : 'createSurvey', component : CreateSurveyComponent},
   {path : 'addQuestion', component : AddQuestionsComponent},
+  {path : 'addSurvey', component : AddSurveyComponent},
 
 ];
 
