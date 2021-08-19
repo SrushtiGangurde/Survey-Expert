@@ -11,6 +11,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -73,6 +74,7 @@ import { AddSurveyComponent } from './add-survey/add-survey.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    MatSlideToggleModule,
     MatInputModule,
     MatCardModule,
     MatTabsModule,
