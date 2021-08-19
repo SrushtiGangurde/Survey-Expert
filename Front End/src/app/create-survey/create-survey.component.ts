@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AddSurveyService } from 'src/services/add-survey.service';
 import Swal from 'sweetalert2';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-create-survey',
   templateUrl: './create-survey.component.html',
@@ -8,15 +10,13 @@ import Swal from 'sweetalert2';
 })
 export class CreateSurveyComponent implements OnInit {
 
-  constructor(private _survey:AddSurveyService) { }
+  constructor(private _survey:AddSurveyService,private snack:MatSnackBar) { }
   surveyData ={
     name :'',
     description :'',
     link :'',
-    //createDate :'',
     lastEditedBy :'',
     status :'',
-    //survey :null,
   }
   ngOnInit(): void {
   }
@@ -25,6 +25,16 @@ export class CreateSurveyComponent implements OnInit {
   addSurvey(){
     console.log(this.surveyData);
 
+    if(this.surveyData.name == '' || this.surveyData.name == null){
+      // alert('username is required!');
+      this.snack.open(" Name is required!", 'OK', {duration:3000, verticalPosition:'top', horizontalPosition:'center'});
+      return;
+    }
+    if(this.surveyData.description == '' || this.surveyData.description == null){
+      // alert('username is required!');
+      this.snack.open(" Description is required!", 'OK', {duration:3000, verticalPosition:'top', horizontalPosition:'center'});
+      return;
+    }
     //call server
     this._survey.addSurvey(this.surveyData).subscribe(
     (success)=>{

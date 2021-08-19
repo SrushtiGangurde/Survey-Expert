@@ -12,6 +12,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSelectModule} from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -86,6 +87,7 @@ import { AddSurveyComponent } from './add-survey/add-survey.component';
     HttpClientModule,
     MatSnackBarModule,
     MatToolbarModule,
+    MatSelectModule
   ],
   
   providers: [authInterceptorProviders],

@@ -9,16 +9,26 @@ import { ViewSurveysService } from 'src/services/view-surveys.service';
 })
 export class PreviousSurveyComponent implements OnInit {
 
-  surveys : survey [] = [];
+  /* surveys = {
+    name : '',
+    description :'',
+  } */
+  surveys : any[] = [];
   public errorMsg: any;
 
-  constructor(private _ViewSurveysService: ViewSurveysService) { }
+  constructor(private _view: ViewSurveysService) { }
 
   ngOnInit() {
-    this._ViewSurveysService.getSurveys()
-      .subscribe((data: any) => this.surveys = data);
+    this._view.getSurveys().subscribe(
+      (data:any) => {
+        this.surveys = data;
+        console.log("From TS 123:"+this.surveys);
 
-      console.log(this.surveys);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
 }
