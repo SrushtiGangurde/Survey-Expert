@@ -14,15 +14,11 @@
                      formControlName="name"
                      required>
             </div>
-            <button style="margin-top:5px; margin-bottom:5px;" type="button" class="btn btn-primary btn-sm" (click)="addNewquestion()">
-              <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add New question
-            </button>
+
             <div formArrayName="questionList">
               <div style="margin-top:5px; margin-bottom:5px;" *ngFor="let question of myForm.get('questionList')['controls']; let i=index">
                 <fieldset>
-                  <legend><h4>question {{i+1}}:<button style="margin-left:35px;" type="button" class="btn btn-danger" (click)="deletequestion(i)">
-          <span class="glyphicon glyphicon-minus"aria-hidden="true"></span> Remove question
-          </button>
+                  <legend><h4>question {{i+1}}:
           </h4></legend>
                   <div [formGroupName]="i">
                     <div class="form-inline">
@@ -59,7 +55,7 @@
                                      name="address"
                                       />
                            <button style="margin-right:5px;" type="button" class="btn btn-danger btn-sm" (click)="deleteoption(question.controls.optionList, j)">
-          <span class="glyphicon glyphicon-minus"aria-hidden="true">Remove Address Line</span>
+          <span class="glyphicon glyphicon-minus"aria-hidden="true">Remove Option</span>
           </button>
           
           
@@ -70,13 +66,19 @@
                       </div>
                     </div>
                   </div>
+
+                  <button style="margin-left:35px;" type="button" class="btn btn-danger" (click)="deletequestion(i)">
+                    <span class="glyphicon glyphicon-minus"aria-hidden="true"></span> Remove question
+                    </button>
                 </fieldset>
               </div>
             </div>
-          
+            <button type="button" class="btn btn-primary btn-sm" (click)="addNewquestion()">
+                 Add New question
+              </button>
             
             <button type="submit" class="btn btn-success">Submit</button>
-            <button type="button" class="btn btn-basic" >Cancel</button>
+            <button type="button" class="btn btn-danger" >Cancel</button>
           </form>
 
     </div>
