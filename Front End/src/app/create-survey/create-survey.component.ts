@@ -13,7 +13,7 @@ export class CreateSurveyComponent implements OnInit {
     name :'',
     description :'',
     link :'',
-    createDate :'',
+    //createDate :'',
     lastEditedBy :'',
     status :'',
     //survey :null,
@@ -27,7 +27,7 @@ export class CreateSurveyComponent implements OnInit {
 
     //call server
     this._survey.addSurvey(this.surveyData).subscribe(
-    (data)=>{
+    (success)=>{
       Swal.fire('Success','Survey Added Succesfully','success')
     },
     (error)=>{
