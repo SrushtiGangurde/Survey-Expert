@@ -7,5 +7,4 @@ export interface survey {
     lastEditedBy : number;
     createdDate : string;
     link : any;
-    questions: question[];
 }

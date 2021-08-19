@@ -5,5 +5,4 @@ export class question{
     answerType : string;
     questionText : string;
     surveyId : number;
-    qOptions: questionOption[];
 }
