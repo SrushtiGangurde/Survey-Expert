@@ -20,7 +20,7 @@ export class UserHomeComponent implements OnInit {
   initProperties(){
     this.surveys=[
       {surveyName: 'Prep up Session Survey', surveyDesc: 'Feedback for the Prep Up sessions Conducted', 
-      surveyId: 1, lastEditedBy: 5, link : 'abcsurvey', createdDate: '12/8/2021', questions: []},
+      surveyId: 1, lastEditedBy: 5, link : 'abcsurvey', createdDate: '12/8/2021'},
       
     ]
   }

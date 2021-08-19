@@ -10,7 +10,7 @@ export class AddSurveyService {
   baseurl  = "http://localhost:8080"
   constructor(private _http:HttpClient) { }
 
-  public addSurvey(survey: any){
-    return this._http.post(`${this.baseurl}/addSurvey`,survey);
+  public addSurvey(surveyData: any){
+    return this._http.post(`${this.baseurl}/survey/addSurvey`,surveyData);
   }
 }
