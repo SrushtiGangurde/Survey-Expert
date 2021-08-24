@@ -15,6 +15,8 @@ import { AddSurveyComponent } from './add-survey/add-survey.component';
 import { AuthGuard } from 'src/services/auth.guard';
 import { SignupComponent } from './signup/signup.component';
 import { NormalGuard } from 'src/services/normal.guard';
+import { AddnewQuestionComponent } from './addnew-question/addnew-question.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 const routes: Routes = [
   {path : '', redirectTo : 'login', pathMatch : 'full'},
@@ -24,19 +26,24 @@ const routes: Routes = [
   {
     path : 'adminHome', 
     component : AdminHomeComponent,
-    canActivate :  [AuthGuard],
-    children: [
-      {path : 'previousSurvey', component : PreviousSurveyComponent},
-      {path : 'analysis', component : SurveyAnalysisComponent},
-      {path : 'createSurvey', component : CreateSurveyComponent},
-      {path : 'addQuestion', component : AddQuestionsComponent},
+    canActivate :  [AuthGuard],    
      
-    ]
   },
-  
+  {
+    path : 'dashboard',
+    component:AdminDashboardComponent
+      
+  },
+  {path : 'addSurvey', component : AddSurveyComponent},
+
+  {path : 'createSurvey', component : CreateSurveyComponent},
+  {path : 'previousSurvey', component : PreviousSurveyComponent},
+  {path : 'analysis', component : SurveyAnalysisComponent},
   {path : 'userHome', component : UserHomeComponent, canActivate : [NormalGuard]},
   {path : 'giveSurvey', component : SurveyDisplayComponent},
-  {path : 'addSurvey', component : AddSurveyComponent},
+  {path : 'addQuestion', component : AddQuestionsComponent},
+  
+  {path : 'newQuestion/:survey_id', component: AddnewQuestionComponent},
 ];
 
 @NgModule({
