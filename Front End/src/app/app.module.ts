@@ -15,6 +15,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
+import {MatListModule} from '@angular/material/list';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -44,7 +47,14 @@ import { authInterceptorProviders } from 'src/services/auth.interceptor';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { AddSurveyComponent } from './add-survey/add-survey.component';
+
 import { ToastrModule } from 'ngx-toastr';
+
+import { AddnewQuestionComponent } from './addnew-question/addnew-question.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { DisplayQuestionComponent } from './display-question/display-question.component';
+
 
 @NgModule({
   declarations: [
@@ -70,11 +80,16 @@ import { ToastrModule } from 'ngx-toastr';
     //DashboardComponent,
     SignupComponent,
     AddSurveyComponent,
+    AddnewQuestionComponent,
+    SidebarComponent,
+    AdminDashboardComponent,
+    DisplayQuestionComponent,
   
   ],
   imports: [
     BrowserModule,
     // Observable,
+    MatRadioModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
@@ -91,8 +106,12 @@ import { ToastrModule } from 'ngx-toastr';
     MatSnackBarModule,
     MatToolbarModule,
     MatSelectModule,
+
     CommonModule,
     ToastrModule.forRoot()
+
+    MatListModule
+
   ],
   
   providers: [authInterceptorProviders],
