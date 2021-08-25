@@ -26,6 +26,7 @@ const routes: Routes = [
     component : AdminHomeComponent,
     canActivate :  [AuthGuard],
     children: [
+      
       {path : 'previousSurvey', component : PreviousSurveyComponent},
       {path : 'analysis', component : SurveyAnalysisComponent},
       {path : 'createSurvey', component : CreateSurveyComponent},
