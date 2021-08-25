@@ -7,12 +7,11 @@
         <div class="card my-2">
           <div class="card-body">
             <h5 class="card-title">{{survey.name | titlecase }}</h5>
-            <p class="card-text">{{survey.description | titlecase }}{{survey.survey_id}}</p><br>
+            <p class="card-text">{{survey.description | titlecase }}</p><br>
             <p>
               <span class=" position-absolute translate-middle-y end-0 ">
                 <a [routerLink]="'../displayQuestion/'+survey.survey_id + '/' + survey.name" mat-raised-button color="primary" class=" mx-2">  Questions </a>
 
-                <a [routerLink]="'../newQuestion/'+survey.survey_id" mat-raised-button color="primary" class=" mx-2"> Add Questions </a>
               <a href="analysis" mat-raised-button color="primary" class="border-light border-2 mx-2" > View Analysis </a>    
               <a href="#" mat-raised-button color="primary" class=" mx-2"> Export Results </a>
               <a href="#" mat-raised-button color="primary" class="border-light border-2 mx-2"> Link </a>

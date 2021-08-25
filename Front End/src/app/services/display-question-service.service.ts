@@ -10,7 +10,7 @@ export class DisplayQuestionServiceService {
   constructor(private _http:HttpClient) { }
 
   displayQuestion(survey_id){
-    return this._http.get(`${this.baseurl}/question/allQuestions`,survey_id);
+    return this._http.get(`${this.baseurl}/question/survey/${survey_id}`);
 
   }
 }
