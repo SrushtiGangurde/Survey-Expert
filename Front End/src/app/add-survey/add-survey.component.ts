@@ -33,7 +33,7 @@ export class AddSurveyComponent implements OnInit {
       name: [''],
       questionList: this.fb.array([])
     })
-    
+
     this.setquestionList();
   }
 
@@ -41,8 +41,28 @@ export class AddSurveyComponent implements OnInit {
     //console.log(this.myForm.value);
     alert(this.myForm.value);
   }
+ /* tempFun(index){
+    let temp_array :any=[];
+    temp_array.push(this.myForm.value);
+    console.log("ADD Temp Array:");
+    temp_array.splice(index,1);
+
+    console.log(temp_array);
+    temp_array.forEach(function(value,key){
+      console.log("Printing values");
+      alert(value);
+      console.log(value);
+    });
+    alert(JSON.stringify(temp_array));
+    //temp_array.pop(index);
+     temp_array.splice(index,1);
+     alert(JSON.stringify(temp_array));
+
+  }  */
   addNewquestion(index) {
     let control = <FormArray>this.myForm.controls.questionList;
+    console.log("Form Data");
+    //this.tempFun(index);
     control.push(
       this.fb.group({
         question: [''],

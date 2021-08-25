@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AddSurveyService } from 'src/services/add-survey.service';
 import Swal from 'sweetalert2';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-create-survey',
@@ -9,9 +10,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./create-survey.component.css']
 })
 export class CreateSurveyComponent implements OnInit {
-
-  constructor(private _survey:AddSurveyService,private snack:MatSnackBar) { }
+  sid;
+  constructor(private _survey:AddSurveyService,private snack:MatSnackBar, private _route:ActivatedRoute) { }
   surveyData ={
+    
     name :'',
     description :'',
     link :'',
@@ -19,6 +21,8 @@ export class CreateSurveyComponent implements OnInit {
     status :'',
   }
   ngOnInit(): void {
+    this.sid=this._route.snapshot.params.sid;
+    //alert(this.sid)
   }
 
   //Add Survey

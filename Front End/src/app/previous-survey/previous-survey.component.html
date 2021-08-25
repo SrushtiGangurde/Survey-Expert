@@ -8,13 +8,14 @@
       <div *ngFor = "let survey of surveys">
         <div class="card my-2">
           <div class="card-body">
-            <h5 class="card-title">{{survey.name }}</h5>
-            <p class="card-text">{{survey.description }}</p><br>
+            <h5 class="card-title">{{survey.name | titlecase }}</h5>
+            <p class="card-text">{{survey.description | titlecase }}{{survey_id}}</p><br>
             <p>
               <span class=" position-absolute translate-middle-y end-0 ">
-              <a href="analysis" class="btn btn-primary border-light border-2 mx-2" > View Analysis </a>    
-              <a href="#" class="btn btn-primary border-light border-2 mx-2"> Export Results </a>
-              <a href="#" class="btn btn-primary border-light border-2 mx-2"> Link </a>
+                <a href="" routerLink="'/newQuestion/'+survey_id" mat-raised-button color="primary" class=" mx-2"> Add Questions </a>
+              <a href="analysis" mat-raised-button color="primary" class="border-light border-2 mx-2" > View Analysis </a>    
+              <a href="#" mat-raised-button color="primary" class=" mx-2"> Export Results </a>
+              <a href="#" mat-raised-button color="primary" class="border-light border-2 mx-2"> Link </a>
             </span>
           </p>
           </div>
