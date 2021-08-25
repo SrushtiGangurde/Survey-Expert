@@ -16,6 +16,7 @@ import { SignupComponent } from './signup/signup.component';
 import { NormalGuard } from 'src/services/normal.guard';
 import { AddnewQuestionComponent } from './addnew-question/addnew-question.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { DisplayQuestionComponent } from './display-question/display-question.component';
 
 const routes: Routes = [
   {path : '', redirectTo : 'login', pathMatch : 'full'},
@@ -37,7 +38,7 @@ const routes: Routes = [
       {path : 'createSurvey', component : CreateSurveyComponent},
       {path : 'previousSurvey', component : PreviousSurveyComponent},
       {path : 'newQuestion/:sid', component: AddnewQuestionComponent},
-
+      {path : 'displayQuestion/:id/:name',component: DisplayQuestionComponent},
     ]
   
   },
