@@ -25,26 +25,31 @@ const routes: Routes = [
   {
     path : 'adminHome', 
     component : AdminHomeComponent,
-
     canActivate :  [AuthGuard],    
-
+    
      
   },
   {
     path : 'dashboard',
-    component:AdminDashboardComponent
-      
+    component:AdminDashboardComponent,
+    children:
+    [
+      {path : 'createSurvey', component : CreateSurveyComponent},
+      {path : 'previousSurvey', component : PreviousSurveyComponent},
+      {path : 'newQuestion/:sid', component: AddnewQuestionComponent},
+
+    ]
+  
   },
   {path : 'addSurvey', component : AddSurveyComponent},
 
-  {path : 'createSurvey', component : CreateSurveyComponent},
-  {path : 'previousSurvey', component : PreviousSurveyComponent},
+  //{path : 'createSurvey', component : CreateSurveyComponent},
+  //{path : 'previousSurvey', component : PreviousSurveyComponent},
   {path : 'analysis', component : SurveyAnalysisComponent},
   {path : 'userHome', component : UserHomeComponent, canActivate : [NormalGuard]},
   {path : 'giveSurvey', component : SurveyDisplayComponent},
   {path : 'addQuestion', component : AddQuestionsComponent},
   
-  {path : 'newQuestion/:survey_id', component: AddnewQuestionComponent},
 ];
 
 @NgModule({

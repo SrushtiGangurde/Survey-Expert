@@ -16,14 +16,14 @@ export class PreviousSurveyComponent implements OnInit {
   } */
   surveys : any[] = [];
   public errorMsg: any;
-  survey_id;
+  survey_id = 0;
 
   constructor(private _view: ViewSurveysService,private _route:ActivatedRoute) { }
 
   ngOnInit() {
 
     this.survey_id=this._route.snapshot.params.sid;
-    alert(this.survey_id);
+    //alert(this.survey_id);
 
     this._view.getSurveys().subscribe(
       (data:any) => {
