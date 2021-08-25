@@ -1,5 +1,7 @@
 import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+
 
 import { MatTabsModule } from '@angular/material/tabs';
 import { FormsModule } from '@angular/forms';
@@ -45,10 +47,14 @@ import { authInterceptorProviders } from 'src/services/auth.interceptor';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { AddSurveyComponent } from './add-survey/add-survey.component';
+
+import { ToastrModule } from 'ngx-toastr';
+
 import { AddnewQuestionComponent } from './addnew-question/addnew-question.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DisplayQuestionComponent } from './display-question/display-question.component';
+
 
 @NgModule({
   declarations: [
@@ -100,7 +106,12 @@ import { DisplayQuestionComponent } from './display-question/display-question.co
     MatSnackBarModule,
     MatToolbarModule,
     MatSelectModule,
+
+    CommonModule,
+    ToastrModule.forRoot()
+
     MatListModule
+
   ],
   
   providers: [authInterceptorProviders],

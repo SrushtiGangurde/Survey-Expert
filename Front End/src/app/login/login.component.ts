@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/services/login.service';
 import { SignupService } from 'src/services/signup.service';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-login',
@@ -18,7 +20,7 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor(private login : LoginService) { }
+  constructor(private login : LoginService, private toastr: ToastrService) { }
 
   ngOnInit(): void {
   }
@@ -38,6 +40,7 @@ export class LoginComponent implements OnInit {
 
             //login
             this.login.login(response.token);
+            
 
             this.login.getCurrentUser().subscribe(
               (user : any) => {
@@ -47,12 +50,16 @@ export class LoginComponent implements OnInit {
                 if(this.login.getUserRole()=="ADMIN")
                 {
                   //admin dashboard
-                  window.location.href = "/adminHome"
+                  window.location.href = "/adminHome";
+                  this.toastr.success("Login Success");
+
                 }
                 else if(this.login.getUserRole()=="NORMAL")
                 {
                   // rdirect : user dashboard
-                  window.location.href = "/userHome"
+                  window.location.href = "/userHome";
+                  this.toastr.success("Login Success");
+
                 }
                 else{
                   this.login.logout();
@@ -69,6 +76,8 @@ export class LoginComponent implements OnInit {
             console.log("error");
 
             console.log(error);
+            this.toastr.error("Login Failed!");
+
           }
         )
 

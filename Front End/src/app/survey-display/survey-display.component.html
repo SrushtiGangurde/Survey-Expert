@@ -1,4 +1,164 @@
  <app-user-nav></app-user-nav>
+<div class="bootstrap-wrapper">
+  <div class="container-fluid">
+
+    <div class="row">
+
+      <div class="col-md-2">
+        <!-- instructions -->
+        <!-- <h3>instructions</h3> -->
+      </div>
+
+      <div class="col-md-8">
+        <!-- questions -->
+        <ng-container *ngIf = "questions">
+          <h1 class="mt20">Survey Name</h1>
+        </ng-container>
+
+        <div *ngFor = "let q of questions, let i = index" class="card mt-5">
+          <div class="card-body">
+
+            <p> 
+              <b>  Q{{i+1}} </b> 
+              <span [innerHTML] = "q"></span>
+             </p> 
+
+            <hr>
+
+            <div class="row ">
+
+              <div class="col-md-6">
+                <!-- [value] = "q.option1" -->
+                <!-- <input type="radio" [value] = "q" [name] = "">{{q}} -->
+
+                <input class="form-check-input" type = "radio" 
+                name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                {{q}}
+                </label>
+
+              </div>
+
+              <div class="col-md-6">
+                <input class="form-check-input" type="radio" 
+                name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                {{q}}
+                </label>              
+              </div>
+
+            </div>
+
+            <div class="row">
+
+              <div class="col-md-6">
+
+                <input class="form-check-input" type="radio" 
+                name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                {{q}}
+                </label>   
+
+              </div>
+
+              <div class="col-md-6">
+
+                <input class="form-check-input" type="radio" 
+                name="flexRadioDefault" id="flexRadioDefault1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                {{q}}
+                </label>      
+
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="container text-center">
+          <button type="button" class="btn btn-primary mt-3 mb-5 ">Submit Survey</button>
+          </div>
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
 
 <div class="container mt-4">
   <div class="card my-2">
@@ -7,16 +167,19 @@
          <div class="card-text ">
          
            <form>
+
            <div class="mb-3">
+
              <label for="exampleInputEmail1" class="form-label">Email address</label>
              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
              <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+
            </div>
 
- 
            <button type="submit" class="btn btn-primary">Submit</button>
+
          </form>
 
        </div>
        </div>
-     </div>
+     </div> -->
