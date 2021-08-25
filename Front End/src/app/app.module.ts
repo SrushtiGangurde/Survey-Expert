@@ -14,6 +14,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
 import {MatListModule} from '@angular/material/list';
+import {MatRadioModule} from '@angular/material/radio';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -46,6 +48,7 @@ import { AddSurveyComponent } from './add-survey/add-survey.component';
 import { AddnewQuestionComponent } from './addnew-question/addnew-question.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { DisplayQuestionComponent } from './display-question/display-question.component';
 
 @NgModule({
   declarations: [
@@ -74,12 +77,13 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
     AddnewQuestionComponent,
     SidebarComponent,
     AdminDashboardComponent,
+    DisplayQuestionComponent,
   
   ],
   imports: [
     BrowserModule,
     // Observable,
-    
+    MatRadioModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
