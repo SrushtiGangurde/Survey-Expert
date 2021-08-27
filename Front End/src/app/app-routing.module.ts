@@ -17,7 +17,6 @@ import { NormalGuard } from 'src/services/normal.guard';
 import { AddnewQuestionComponent } from './addnew-question/addnew-question.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DisplayQuestionComponent } from './display-question/display-question.component';
-import { GiveSurveyComponent } from './give-survey/give-survey.component';
 
 const routes: Routes = [
   {path : '', redirectTo : 'login', pathMatch : 'full'},
@@ -43,8 +42,6 @@ const routes: Routes = [
     ]
   
   },
-  {path : 'giveSurvey/:sid',component: GiveSurveyComponent,canActivate : [NormalGuard]},
-  
   {path : 'addSurvey', component : AddSurveyComponent},
 
   //{path : 'createSurvey', component : CreateSurveyComponent},
