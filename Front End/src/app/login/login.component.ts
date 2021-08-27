@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     username: '',
     password : '',
   }
-
+  previousRoute;
 
 
   constructor(private login : LoginService,
@@ -30,10 +30,12 @@ export class LoginComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    this.routerService.loadRouting();
+
     this.login.logout();
-    //console.log('previous url', this.router.events[0].urlAfterRedirects);
-    const referrer = this.routerService.getPreviousUrl();
-    console.log(referrer);
+
+    this.previousRoute = this.routerService.getPreviousUrl();
+    console.log(this.previousRoute);
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     console.log(this.returnUrl);
 
@@ -68,8 +70,8 @@ export class LoginComponent implements OnInit {
                 else if(this.login.getUserRole()=="NORMAL")
                 {
                   // rdirect : user dashboard
-                  if (this.returnUrl.includes('giveSurvey')==true){
-                    this.router.navigateByUrl(this.returnUrl);
+                  if (this.previousRoute.includes('giveSurvey')==true){
+                    this.router.navigateByUrl(this.previousRoute);
                   }
                   else{
                   window.location.href = "/userHome"
