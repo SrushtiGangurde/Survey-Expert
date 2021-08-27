@@ -4,7 +4,12 @@ import { Router, ActivatedRoute,RouterEvent,NavigationEnd } from '@angular/route
 import { filter, pairwise } from 'rxjs/operators';
 
 import { SignupService } from 'src/services/signup.service';
+
 import { RouteService } from '../route.service';
+
+import { ToastrService } from 'ngx-toastr';
+
+
 
 @Component({
   selector: 'app-login',
@@ -23,11 +28,14 @@ export class LoginComponent implements OnInit {
 
 
 
+
   constructor(private login : LoginService,
     private route: ActivatedRoute,
     private router:Router,
-    private routerService: RouteService
+    private routerService: RouteService,
+    private toastr: ToastrService
     ) { }
+
 
   ngOnInit(): void {
     this.login.logout();
@@ -54,6 +62,7 @@ export class LoginComponent implements OnInit {
 
             //login
             this.login.login(response.token);
+            
 
             this.login.getCurrentUser().subscribe(
               (user : any) => {
@@ -63,17 +72,24 @@ export class LoginComponent implements OnInit {
                 if(this.login.getUserRole()=="ADMIN")
                 {
                   //admin dashboard
-                  window.location.href = "/adminHome"
+                  window.location.href = "/adminHome";
+                  this.toastr.success("Login Success");
+
                 }
                 else if(this.login.getUserRole()=="NORMAL")
                 {
                   // rdirect : user dashboard
+
                   if (this.returnUrl.includes('giveSurvey')==true){
                     this.router.navigateByUrl(this.returnUrl);
                   }
                   else{
                   window.location.href = "/userHome"
                   }
+
+                 // window.location.href = "/userHome";
+                 // this.toastr.success("Login Success");
+
                 }
                 else{
                   this.login.logout();
@@ -90,6 +106,8 @@ export class LoginComponent implements OnInit {
             console.log("error");
 
             console.log(error);
+            this.toastr.error("Login Failed!");
+
           }
         )
 

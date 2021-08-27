@@ -15,6 +15,8 @@ export class LoginService {
 
 
   getCurrentUser(){
+    console.log("Currrent User");
+    console.log(this.http.get(`${baseUrl}/current-user`));
     return this.http.get(`${baseUrl}/current-user`);
   }
 
@@ -80,6 +82,8 @@ export class LoginService {
   // get User Role
   public getUserRole(){
     let user = this.getUser();
+    console.log(user.authorities[0]);
     return user.authorities[0].authority;
+
   }
 }
