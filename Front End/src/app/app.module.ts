@@ -17,7 +17,6 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import {MatSelectModule} from '@angular/material/select';
 import {MatListModule} from '@angular/material/list';
 import {MatRadioModule} from '@angular/material/radio';
-import { ClipboardModule } from 'ngx-clipboard';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -55,7 +54,6 @@ import { AddnewQuestionComponent } from './addnew-question/addnew-question.compo
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { DisplayQuestionComponent } from './display-question/display-question.component';
-import { GiveSurveyComponent } from './give-survey/give-survey.component';
 
 
 @NgModule({
@@ -86,14 +84,12 @@ import { GiveSurveyComponent } from './give-survey/give-survey.component';
     SidebarComponent,
     AdminDashboardComponent,
     DisplayQuestionComponent,
-    GiveSurveyComponent,
   
   ],
   imports: [
     BrowserModule,
     // Observable,
     MatRadioModule,
-    ClipboardModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
