@@ -46,10 +46,10 @@ export class AddnewQuestionComponent implements OnInit {
     //call server
     this._question.addQuestion(this.question).subscribe(
     (success)=>{
-      Swal.fire('Success','Survey Added Succesfully','success')
+      Swal.fire('Success','Question Added Succesfully','success')
     },
     (error)=>{
-      Swal.fire('Error','Error while adding Survey','error')
+      Swal.fire('Error','Error while adding Question','error')
       console.log(error);
     }
     );

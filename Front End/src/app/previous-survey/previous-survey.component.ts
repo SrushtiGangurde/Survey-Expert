@@ -41,8 +41,8 @@ export class PreviousSurveyComponent implements OnInit {
     );
   }
 
-  copyContent(surveyid) {
-    this.text="http://localhost:4200/giveSurvey/"+surveyid;
+  copyContent(surveyid,sname) {
+    this.text="http://localhost:4200/giveSurvey/"+surveyid+"/"+sname;
 
     this.clipboardService.copyFromContent(this.text)
     this.snack.open(" Link  Copied!", 'OK', {duration:3000, verticalPosition:'top', horizontalPosition:'center'});

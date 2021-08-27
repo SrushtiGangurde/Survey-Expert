@@ -4,12 +4,7 @@ import { Router, ActivatedRoute,RouterEvent,NavigationEnd } from '@angular/route
 import { filter, pairwise } from 'rxjs/operators';
 
 import { SignupService } from 'src/services/signup.service';
-
 import { RouteService } from '../route.service';
-
-import { ToastrService } from 'ngx-toastr';
-
-
 
 @Component({
   selector: 'app-login',
@@ -25,23 +20,22 @@ export class LoginComponent implements OnInit {
     username: '',
     password : '',
   }
-
-
+  previousRoute;
 
 
   constructor(private login : LoginService,
     private route: ActivatedRoute,
     private router:Router,
-    private routerService: RouteService,
-    private toastr: ToastrService
+    private routerService: RouteService
     ) { }
 
-
   ngOnInit(): void {
+    this.routerService.loadRouting();
+
     this.login.logout();
-    //console.log('previous url', this.router.events[0].urlAfterRedirects);
-    const referrer = this.routerService.getPreviousUrl();
-    console.log(referrer);
+
+    this.previousRoute = this.routerService.getPreviousUrl();
+    console.log(this.previousRoute);
     this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     console.log(this.returnUrl);
 
@@ -62,7 +56,6 @@ export class LoginComponent implements OnInit {
 
             //login
             this.login.login(response.token);
-            
 
             this.login.getCurrentUser().subscribe(
               (user : any) => {
@@ -72,24 +65,17 @@ export class LoginComponent implements OnInit {
                 if(this.login.getUserRole()=="ADMIN")
                 {
                   //admin dashboard
-                  window.location.href = "/adminHome";
-                  this.toastr.success("Login Success");
-
+                  window.location.href = "/adminHome"
                 }
                 else if(this.login.getUserRole()=="NORMAL")
                 {
                   // rdirect : user dashboard
-
-                  if (this.returnUrl.includes('giveSurvey')==true){
-                    this.router.navigateByUrl(this.returnUrl);
+                  if (this.previousRoute.includes('giveSurvey')==true){
+                    this.router.navigateByUrl(this.previousRoute);
                   }
                   else{
                   window.location.href = "/userHome"
                   }
-
-                 // window.location.href = "/userHome";
-                 // this.toastr.success("Login Success");
-
                 }
                 else{
                   this.login.logout();
@@ -106,8 +92,6 @@ export class LoginComponent implements OnInit {
             console.log("error");
 
             console.log(error);
-            this.toastr.error("Login Failed!");
-
           }
         )
 

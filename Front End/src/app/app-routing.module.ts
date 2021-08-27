@@ -43,7 +43,7 @@ const routes: Routes = [
     ]
   
   },
-  {path : 'giveSurvey/:sid',component: GiveSurveyComponent,canActivate : [NormalGuard]},
+  {path : 'giveSurvey/:sid/:name',component: GiveSurveyComponent,canActivate : [NormalGuard]},
   
   {path : 'addSurvey', component : AddSurveyComponent},
 
