@@ -1,7 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/services/login.service';
+import { Router, ActivatedRoute,RouterEvent,NavigationEnd } from '@angular/router';
+import { filter, pairwise } from 'rxjs/operators';
+
 import { SignupService } from 'src/services/signup.service';
+
+import { RouteService } from '../route.service';
+
 import { ToastrService } from 'ngx-toastr';
+
 
 
 @Component({
@@ -12,7 +19,8 @@ import { ToastrService } from 'ngx-toastr';
 export class LoginComponent implements OnInit {
 
   token : string = null;
-
+  returnUrl:string;
+  prev;
   credentials = {
     username: '',
     password : '',
@@ -20,11 +28,25 @@ export class LoginComponent implements OnInit {
 
 
 
-  constructor(private login : LoginService, private toastr: ToastrService) { }
+
+  constructor(private login : LoginService,
+    private route: ActivatedRoute,
+    private router:Router,
+    private routerService: RouteService,
+    private toastr: ToastrService
+    ) { }
+
 
   ngOnInit(): void {
-  }
+    this.login.logout();
+    //console.log('previous url', this.router.events[0].urlAfterRedirects);
+    const referrer = this.routerService.getPreviousUrl();
+    console.log(referrer);
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    console.log(this.returnUrl);
 
+  }
+  
   public onSignIn (){
 
     console.log("form is submitted");
@@ -57,8 +79,16 @@ export class LoginComponent implements OnInit {
                 else if(this.login.getUserRole()=="NORMAL")
                 {
                   // rdirect : user dashboard
-                  window.location.href = "/userHome";
-                  this.toastr.success("Login Success");
+
+                  if (this.returnUrl.includes('giveSurvey')==true){
+                    this.router.navigateByUrl(this.returnUrl);
+                  }
+                  else{
+                  window.location.href = "/userHome"
+                  }
+
+                 // window.location.href = "/userHome";
+                 // this.toastr.success("Login Success");
 
                 }
                 else{
