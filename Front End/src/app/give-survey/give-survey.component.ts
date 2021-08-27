@@ -12,6 +12,16 @@ export class GiveSurveyComponent implements OnInit {
   questions = [];
   survey_id: any;
   name: any;
+  response = {
+    user : {},
+    survey :{},
+    question :{},
+    save_unsave:'',
+    option1:'',
+    option2:'',
+    option3:'',
+    option4:'',
+  }
 
   constructor(
     private _route:ActivatedRoute,
@@ -38,7 +48,7 @@ export class GiveSurveyComponent implements OnInit {
 
   //Post method for saving responses 
   saveResponse(){
-    
+
   }
 
 }
