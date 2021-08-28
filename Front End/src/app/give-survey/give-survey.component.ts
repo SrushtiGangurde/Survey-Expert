@@ -17,10 +17,10 @@ export class GiveSurveyComponent implements OnInit {
     survey :{},
     question :{},
     save_unsave:'',
-    option1:'',
-    option2:'',
-    option3:'',
-    option4:'',
+    answer1:'',
+    answer2:'',
+    answer3:'',
+    answer4:'',
   }
 
   constructor(
@@ -33,11 +33,17 @@ export class GiveSurveyComponent implements OnInit {
   ngOnInit(){
     this.survey_id=this._route.snapshot.params.sid;
     this.name=this._route.snapshot.params.name;
+    //this.response.question['question_id']=this.
+    this.response.survey['survey_id']=this.survey_id;
 
     this._display.displayQuestion(this.survey_id).subscribe(
       (data:any) => {
         this.questions = data;
         console.log(this.questions);
+        localStorage.setItem("questions",JSON.stringify(this.questions));
+        let q=localStorage.getItem("questions");
+        q=JSON.parse(q);
+        console.log(q);
 
       },
       (error) => {
