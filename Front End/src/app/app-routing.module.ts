@@ -24,16 +24,17 @@ const routes: Routes = [
   {path : 'login', component : LoginComponent},
   {path : 'signup', component : SignupComponent},
   {path : 'userLogin', component : UserLoginComponent},
-  {
-    path : 'adminHome', 
-    component : AdminHomeComponent,
-    canActivate :  [AuthGuard],    
+  // {
+  //   path : 'adminHome', 
+  //   component : AdminHomeComponent,
+  //   canActivate :  [AuthGuard],    
     
      
-  },
+  // },
   {
     path : 'dashboard',
     component:AdminDashboardComponent,
+    canActivate :  [AuthGuard],    
     children:
     [
       {path : 'createSurvey', component : CreateSurveyComponent},
