@@ -3,10 +3,11 @@
     <h3 class="text-center head">  Survey of {{name}}</h3>
     </span>
     <br><br><div class="container">
-    <mat-card *ngFor="let q of questions; let i = index" class="mt-4">
+        <mat-card  class="mt-4">
+    
         <mat-card-content>
           <p>
-            <b> Q {{ i + 1 }})</b>
+            <b> Q {{ current + 1 }})</b>
             <span class="ml20" [innerHTML]="q.question_text"></span>
           </p>
           <div class="container-fluid">
@@ -16,8 +17,7 @@
                         name="input_text"
                         [(ngModel)]="response.answer1"
                         matInput required><br>
-                <button class="center " mat-raised-button color="primary" (click)="saveData(q.question_id)">Save and Next</button>
-
+                <button class="center " mat-raised-button color="primary" (change) = "onAnswer()"(click)="saveData(q.question_id)">Save and Next</button>
                 </div> 
                 <div *ngIf="q.answer_type=='checkbox'" class="name">
                     <div class="row">
@@ -28,7 +28,7 @@
                             <mat-checkbox class="example-margin" [(ngModel)]="response.answer4" name="answer4" [value]="q.option4" ngDefaultControl *ngIf="q.option4!=''">{{q.option4}}</mat-checkbox><br>
                         </div>
                     </div>
-                <button class="center " mat-raised-button color="primary" (click)="check(q.question_id,q.option1,q.option2,q.option3,q.option4)">Save and Next</button>
+                <button class="center " mat-raised-button color="primary" (change) = "onAnswer()" (click)="check(q.question_id,q.option1,q.option2,q.option3,q.option4)">Save and Next</button>
 
                 </div>
                 <div *ngIf="q.answer_type=='radio'"  class="name">
@@ -42,7 +42,7 @@
                                 </mat-radio-group>  
                         </div>   
                     </div>
-                    <button class="center " mat-raised-button color="primary" (click)="saveData(q.question_id)">Save and Next</button>
+                    <button class="center " mat-raised-button color="primary" (change) = "onAnswer()" (click)="saveData(q.question_id)">Save and Next</button>
 
                 </div> 
                 <div *ngIf="q.answer_type=='dropdown'"  class="name">
@@ -56,7 +56,7 @@
                         </mat-select>
                     </div>
                 </div> 
-                <button class="center " mat-raised-button color="primary" (click)="saveData(q.question_id)">Save and Next</button>
+                <button class="center " mat-raised-button color="primary" (change) = "onAnswer()" (click)="saveData(q.question_id)">Save and Next</button>
 
                 </div> 
             </div>
@@ -65,9 +65,10 @@
     </mat-card-content>
     
     </mat-card></div><br><br>
+
     <button class="center " mat-raised-button color="primary">Save</button>
     
-    <button class="center ml15" mat-raised-button color="primary">Finish</button>
+    <button class="center ml15" mat-raised-button color="primary" (ngSubmit)="SaveResponse()">Finish</button>
     </div>
 
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { response } from 'src/model/response';
 import { DisplayQuestionServiceService } from '../services/display-question-service.service';
-
+import { LoginService } from 'src/services/login.service';
 @Component({
   selector: 'app-give-survey',
   templateUrl: './give-survey.component.html',
@@ -15,6 +15,8 @@ export class GiveSurveyComponent implements OnInit {
   name: any;
   temp;
   i=0;
+  q;
+  current=0;
   response = {
     user : {},
     survey :{},
@@ -26,35 +28,45 @@ export class GiveSurveyComponent implements OnInit {
     answer4:'',
   }
   q_array = [];
+  userDet;
   constructor(
     private _route:ActivatedRoute,
-    private _display:DisplayQuestionServiceService
-
+    private _display:DisplayQuestionServiceService,
+    private _login:LoginService
   ) { }
 
   ngOnInit(){
     this.survey_id=this._route.snapshot.params.sid;
     this.name=this._route.snapshot.params.name;
     this.response.survey['survey_id']=this.survey_id;
+    this._login.getCurrentUser().subscribe(
+      (data:any)=>{
+        this.userDet=data;
+        console.log(this.userDet);
+        this.response.user['user_id']=this.userDet['user_id'];
 
-    this._display.displayQuestion(this.survey_id).subscribe(
-      (data:any) => {
-        this.questions = data;
-        //this.response.question['question_id']=this.questions[this.i].question_id;
-
-        /* console.log(this.questions);
-        localStorage.setItem("questions",JSON.stringify(this.questions));
-        let q=localStorage.getItem("questions");
-        q=JSON.parse(q);
-        console.log(q); */
-        this.i=this.i+1;
-
-      },
-      (error) => {
-        console.log(error);
       }
     );
+    //console.log(this.userDet);
+    //console.log()
+    this.show(this.survey_id);
   }
+
+  show(survey_id){
+  this._display.displayQuestion(survey_id).subscribe(
+    (data:any) => {
+      this.questions = data;
+        this.q = this.questions[this.current];
+        console.log(this.q);
+      this.i=this.i+1;
+
+    },
+    (error) => {
+      console.log(error);
+    }
+  );
+  }
+
   check(qid,option1,option2,option3,option4){
     console.log("From Check");
     console.log(this.response.answer1);
@@ -104,43 +116,19 @@ export class GiveSurveyComponent implements OnInit {
       answer3:'',
       answer4:'',
     }
-    
-    console.log(this.q_array);
-
-  }
-
-  
-  /*checkCheckBoxvalue(check,answer){
-    if (check.checked==true){
       
-    if(check.checked==false){
-      this.q_array.pop()
-    }
-      console.log(check.checked,answer);
-    }
-  }/*
-  fun(qid){
-    this.q_array.push(qid);
     console.log(this.q_array);
-    this.q_array.length=0;
-
+    this.current++;
+    this.show(this.survey_id);
   }
-  Radiovalue(answer){
-    if (answer!="undefined" && answer!=""){
-      this.q_array.push(answer)
-      console.log(answer);
-    }
 
+  onAnswer(){
+    this.current++;
   }
-  Radiofun(qid){
-    this.q_array.push(qid);
-    console.log(this.q_array);
-    this.q_array.length=0;
-
-  } */
+  
   //Post method for saving responses 
-  saveResponse(){
-
+  SaveResponse(){
+    
   }
 
 }
