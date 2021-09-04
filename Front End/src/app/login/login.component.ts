@@ -65,7 +65,7 @@ export class LoginComponent implements OnInit {
                 if(this.login.getUserRole()=="ADMIN")
                 {
                   //admin dashboard
-                  window.location.href = "/adminHome"
+                  window.location.href = "/dashboard"
                 }
                 else if(this.login.getUserRole()=="NORMAL")
                 {
