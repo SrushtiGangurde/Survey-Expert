@@ -3,6 +3,9 @@ import { ActivatedRoute } from '@angular/router';
 import { response } from 'src/model/response';
 import { DisplayQuestionServiceService } from '../services/display-question-service.service';
 import { LoginService } from 'src/services/login.service';
+import { SaveResponseService } from '../services/save-response.service';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-give-survey',
   templateUrl: './give-survey.component.html',
@@ -15,6 +18,7 @@ export class GiveSurveyComponent implements OnInit {
   name: any;
   temp;
   i=0;
+  j;
   q;
   current=0;
   response = {
@@ -32,7 +36,8 @@ export class GiveSurveyComponent implements OnInit {
   constructor(
     private _route:ActivatedRoute,
     private _display:DisplayQuestionServiceService,
-    private _login:LoginService
+    private _login:LoginService,
+    private _save:SaveResponseService
   ) { }
 
   ngOnInit(){
@@ -128,7 +133,22 @@ export class GiveSurveyComponent implements OnInit {
   
   //Post method for saving responses 
   SaveResponse(){
-    
+    console.log("Save Response");
+    for(this.j=0 ; this.j<this.q_array.length ; this.j++){
+      console.log(this.q_array[this.j]);
+      this._save.SaveResponse(this.q_array[this.j]).subscribe(
+        (success)=>{
+          console.log("From Sucess!!");
+          //Swal.fire('Success','Question Added Succesfully','success')
+        },
+        (error)=>{
+          //Swal.fire('Error','Error while adding Question','error')
+          console.log(error);
+        }
+      );
+
+    }
+
   }
 
 }
