@@ -9,7 +9,7 @@ export class SaveResponseService {
   baseurl  = "http://localhost:8080"
 
   constructor(private _http:HttpClient) { }
-  public saveResponse(response){
+  public SaveResponse(response){
     return this._http.post(`${this.baseurl}/response/addResponse`,response);
 
   }
