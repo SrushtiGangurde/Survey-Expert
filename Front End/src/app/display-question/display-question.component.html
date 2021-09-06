@@ -1,5 +1,5 @@
 <h3>Displaying Question of {{name}}</h3>
-<a [routerLink]="'/dashboard/newQuestion/'+survey_id" mat-raised-button color="primary" class=" mx-2"> Add Question </a>
+<a [routerLink]="'/adminHome/newQuestion/'+survey_id" mat-raised-button color="primary" class=" mx-2"> Add Question </a>
 <br><br>
 <mat-card *ngFor="let q of questions; let i = index" class="mt20">
     <mat-card-content>
