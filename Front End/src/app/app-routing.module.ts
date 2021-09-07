@@ -26,18 +26,14 @@ const routes: Routes = [
   {path : '', redirectTo : 'login', pathMatch : 'full'},
   {path : 'login', component : LoginComponent},
   {path : 'signup', component : SignupComponent},
-<<<<<<< HEAD
-  {path : 'userLogin', component : UserLoginComponent},
-  {
+  //{path : 'userLogin', component : UserLoginComponent},
+  /* {
     path : 'adminHome', 
     component : AdminHomeComponent,
-    //canActivate :  [AuthGuard],    
+    canActivate :  [AuthGuard],    
     
      
-  },
-=======
-
->>>>>>> 5f4df8a2581a1b004759d20ef1973a8171b0b35c
+  }, */
   {
     path : 'adminHome',
     component:AdminDashboardComponent,
@@ -51,15 +47,8 @@ const routes: Routes = [
     ]
   
   },
-<<<<<<< HEAD
-  //{path : 'giveSurvey/:sid/:name',component: GiveSurveyComponent,canActivate : [NormalGuard]},
-  {path : 'giveSurvey/:sid/:name',component: GiveSurveyComponent},
-
-  {path : 'addSurvey', component : AddSurveyComponent},
-=======
->>>>>>> 5f4df8a2581a1b004759d20ef1973a8171b0b35c
-
   {path : 'giveSurvey/:sid/:name',component: GiveSurveyComponent,canActivate : [NormalGuard]},
+  
   {path : 'analysis', component : SurveyAnalysisComponent},
   {path : 'userHome', component : UserHomeComponent, canActivate : [NormalGuard]},
   
