@@ -27,7 +27,7 @@ const routes: Routes = [
   {
     path : 'adminHome', 
     component : AdminHomeComponent,
-    canActivate :  [AuthGuard],    
+    //canActivate :  [AuthGuard],    
     
      
   },
@@ -43,8 +43,9 @@ const routes: Routes = [
     ]
   
   },
-  {path : 'giveSurvey/:sid/:name',component: GiveSurveyComponent,canActivate : [NormalGuard]},
-  
+  //{path : 'giveSurvey/:sid/:name',component: GiveSurveyComponent,canActivate : [NormalGuard]},
+  {path : 'giveSurvey/:sid/:name',component: GiveSurveyComponent},
+
   {path : 'addSurvey', component : AddSurveyComponent},
 
   //{path : 'createSurvey', component : CreateSurveyComponent},

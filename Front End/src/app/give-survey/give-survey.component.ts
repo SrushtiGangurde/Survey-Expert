@@ -47,7 +47,7 @@ export class GiveSurveyComponent implements OnInit {
     this._login.getCurrentUser().subscribe(
       (data:any)=>{
         this.userDet=data;
-        console.log(this.userDet);
+        //console.log(this.userDet);
         this.response.user['user_id']=this.userDet['user_id'];
 
       }
@@ -62,7 +62,7 @@ export class GiveSurveyComponent implements OnInit {
     (data:any) => {
       this.questions = data;
         this.q = this.questions[this.current];
-        console.log(this.q);
+        //console.log(this.q);
       this.i=this.i+1;
 
     },
@@ -73,12 +73,12 @@ export class GiveSurveyComponent implements OnInit {
   }
 
   check(qid,option1,option2,option3,option4){
-    console.log("From Check");
-    console.log(this.response.answer1);
+    //console.log("From Check");
+    //console.log(this.response.answer1);
 
     if (String(this.response.answer1)=='true'){
-      console.log("In condition")
-      console.log(this.response.answer1);
+      //console.log("In condition")
+      //console.log(this.response.answer1);
       this.response.answer1=option1;
     }
     else{
@@ -102,18 +102,29 @@ export class GiveSurveyComponent implements OnInit {
     else{
       this.response.answer4="";
       }
-    console.log(this.response);
+    //console.log(this.response);
       this.saveData(qid);
   }
   saveData(qid){
-    console.log(qid);
+    //console.log(qid);
     this.response.question['question_id']=qid;
-    console.log(this.response);
+    //console.log(this.response);
     this.q_array=this.q_array.concat(this.response);
-    
+    this._login.getCurrentUser().subscribe(
+      (data:any)=>{
+        this.userDet=data;
+        //console.log(this.userDet);
+        this.response.user['user_id']=this.userDet['user_id'];
+
+      }
+    );
     this.response = {
-      user : {},
-      survey :{},
+      user : {
+        'user_id':this.userDet['user_id'],
+      },
+      survey :{
+        'survey_id':this.survey_id,
+      },
       question :{},
       save_unsave:'',
       answer1:'',
@@ -122,7 +133,7 @@ export class GiveSurveyComponent implements OnInit {
       answer4:'',
     }
       
-    console.log(this.q_array);
+    //console.log(this.q_array);
     this.current++;
     this.show(this.survey_id);
   }
@@ -134,6 +145,7 @@ export class GiveSurveyComponent implements OnInit {
   //Post method for saving responses 
   SaveResponse(){
     console.log("Save Response");
+    console.log(this.q_array);
     for(this.j=0 ; this.j<this.q_array.length ; this.j++){
       console.log(this.q_array[this.j]);
       this._save.SaveResponse(this.q_array[this.j]).subscribe(
@@ -148,7 +160,5 @@ export class GiveSurveyComponent implements OnInit {
       );
 
     }
-
   }
-
 }
