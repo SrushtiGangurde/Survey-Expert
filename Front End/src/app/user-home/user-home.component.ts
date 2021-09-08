@@ -14,13 +14,14 @@ import { Survey } from '../create-survey/data-models';
 export class UserHomeComponent implements OnInit {
 
   surveys;
+  surveyDet;
   previous = [];
-  uniqueItems = [];
   s;
   i;
   userDet;
   response;
   user_id;
+  sarray = [];
 
   constructor(private _login:LoginService,private _viewResponse: ViewResponseService) { }
 
@@ -36,31 +37,52 @@ export class UserHomeComponent implements OnInit {
     );
   }
   
-
   showSurveys(user_id){
     this._viewResponse.getUserResponse(user_id).subscribe(
       (data:any) => {
         this.surveys = data;
         for(this.i=0; this.i<this.surveys.length; this.i++){
           if(this.surveys[this.i].survey['status']){
-            this.previous[this.i] = this.surveys[this.i];
+            this.previous[this.i] = this.surveys[this.i].survey['survey_id'];
             console.log(this.previous[this.i]);
           }
         }
-
-        let uniqueItems = [...new Set(this.previous)];
-        console.log("Unique below");
+        let uniqueItems=[...new Set(this.previous)];
         console.log(uniqueItems);
+         
+        for(this.i=0; this.i<uniqueItems.length; this.i++){
+          console.log("In loop");
+          // this.sarray[this.i] = this.showName(uniqueItems[this.i]);
+          console.log(this.showName(uniqueItems[this.i]));
+          
+        }
+
+        console.log("Sarray");
+        console.log(this.sarray);
         
-         console.log(this.user_id);
-         console.log(this.surveys);
-         console.log("after service");
-  
+
+
+         //console.log(this.surveys);
+         //console.log("after service");
       },
       (error) => {
         console.log(error);
       }
     );
-    }
+  }
 
+  showName(survey_id){
+    this._viewResponse.getSurveyById(survey_id).subscribe(
+      (data:any) => {
+        this.surveyDet = data;
+        console.log("Survey by id");
+        console.log(this.surveyDet);
+        this.sarray=this.sarray.concat(this.surveyDet);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+    
+  }
 }
