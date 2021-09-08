@@ -5,6 +5,7 @@ import { filter, pairwise } from 'rxjs/operators';
 
 import { SignupService } from 'src/services/signup.service';
 import { RouteService } from '../route.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -90,7 +91,9 @@ export class LoginComponent implements OnInit {
           (error) => {
             // fail
             console.log("error");
-
+            Swal.fire({
+              title: 'Wrong username or password!',
+            })
             console.log(error);
           }
         )
