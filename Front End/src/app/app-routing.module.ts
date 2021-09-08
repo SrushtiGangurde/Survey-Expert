@@ -14,6 +14,7 @@ import { AddnewQuestionComponent } from './addnew-question/addnew-question.compo
 import { DisplayQuestionComponent } from './display-question/display-question.component';
 import { UserHomeComponent } from './user-home/user-home.component';
 import { GiveSurveyComponent } from './give-survey/give-survey.component';
+import { AdminHomeComponent } from './AdminHomePage/admin-home/admin-home.component';
 
 //import { UserLoginComponent } from './user-login/user-login.component';
 //import { AdminHomeComponent } from './AdminHomePage/admin-home/admin-home.component';
@@ -44,6 +45,7 @@ const routes: Routes = [
       {path : 'previousSurvey', component : PreviousSurveyComponent},
       {path : 'newQuestion/:sid', component: AddnewQuestionComponent},
       {path : 'displayQuestion/:id/:name',component: DisplayQuestionComponent},
+      {path : 'welcome', component : AdminHomeComponent},
     ]
   
   },
@@ -55,11 +57,7 @@ const routes: Routes = [
   {path : 'analysis', component : SurveyAnalysisComponent},
   {path : 'userHome', component : UserHomeComponent, canActivate : [NormalGuard]},
   
-   // {
-  //   path : 'adminHome', 
-  //   component : AdminHomeComponent,
-  //   canActivate :  [AuthGuard],    
-  // },
+   
   // {path : 'userLogin', component : UserLoginComponent},
   //{path : 'addSurvey', component : AddSurveyComponent},
   //{path : 'createSurvey', component : CreateSurveyComponent},
