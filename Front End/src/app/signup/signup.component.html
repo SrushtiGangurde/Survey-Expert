@@ -12,54 +12,47 @@
   <form (ngSubmit) = "registerUser()">
 
     <!-- first name -->
-    <div class="form-outline mb-4">
-      <label class="form-label" for="form3Example1">First name</label>
-      <input 
-        required
-        type="text"
-        name="first"
-        class="form-control"
-       [(ngModel)]="user.first_name" />
-    </div>
+    <mat-form-field appearance="outline" style="width: 500px;">
+      <mat-label>First Name</mat-label>
+      <input
+      [(ngModel)]="user.first_name"
+      name="first"
+      matInput required>
+    </mat-form-field><br/>
   
     <!-- last name -->
-    <div class="form-outline mb-4">
-      <label class="form-label" for="form3Example1">Last name</label>
-      <input 
-      required
-      type="text" 
-      class="form-control" 
-      name="first"
-
-      [(ngModel)]="user.last_name"/>
-    </div>
+    <mat-form-field appearance="outline" style="width: 500px;">
+      <mat-label>Last Name</mat-label>
+      <input
+      [(ngModel)]="user.last_name"
+      name="last"
+      matInput required>
+    </mat-form-field><br/>
 
     <!-- email -->
-    <div class="form-outline mb-4">
-      <label class="form-label" for="form3Example1">Email</label>
-      <input 
-      required
-      type="email" 
-      class="form-control"
-      name="first"
- 
-      [(ngModel)]="user.username"/>
-    </div>
+    <mat-form-field appearance="outline" style="width: 500px;">
+      <mat-label>Email</mat-label>
+      <input
+      [(ngModel)]="user.username"
+      name="email"
+      placeholder="Ex. xyz@example.com"
+      matInput pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required>
+    </mat-form-field><br/>
 
     <!-- password -->
-    <div class="form-outline mb-4">
-      <label class="form-label" for="form3Example4">Password</label>
-      <input 
-      required
-      type="password" 
-      class="form-control"
-      name="first" 
-      [(ngModel)]="user.password"/>
-  </div>
+    <mat-form-field appearance="outline" style="width: 500px;">
+      <mat-label>Password</mat-label>
+      <input
+      type="password"
+      [(ngModel)]="user.password"
+      name="password"
+      matInput required>
+    </mat-form-field><br/>
   
     <!-- Submit button -->
     <button type="submit" class="btn btn-primary btn-block mb-4">Sign up</button>
     <!-- <button type="submit" class="btn btn-primary btn-block mb-4">Reset</button> -->
+
   </form>
   </div>
   </div>
