@@ -26,7 +26,7 @@ export class GiveSurveyComponent implements OnInit {
     user : {},
     survey :{},
     question :{},
-    save_unsave:'',
+    save_unsave:false,
     answer1:'',
     answer2:'',
     answer3:'',
@@ -111,6 +111,7 @@ export class GiveSurveyComponent implements OnInit {
     this.response.question['question_id']=qid;
     //console.log(this.response);
     if(this.flag==false){
+      this.response.save_unsave = true;
       this.q_array=this.q_array.concat(this.response);
     }
     
@@ -130,7 +131,7 @@ export class GiveSurveyComponent implements OnInit {
         'survey_id':this.survey_id,
       },
       question :{},
-      save_unsave:'',
+      save_unsave:false,
       answer1:'',
       answer2:'',
       answer3:'',
