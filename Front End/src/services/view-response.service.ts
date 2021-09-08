@@ -10,9 +10,16 @@ export class ViewResponseService {
 
   constructor(private _http:HttpClient) { }
 
-  public getUserSurvey(user_id): Observable<any>{
+  public getUserResponse(user_id): Observable<any>{
     console.log("From service");
-    console.log(this._http.get(`${baseUrl}/response/user/{user_id}`,user_id));
-    return this._http.get(`${baseUrl}/response/user/{user_id}`, user_id);
+    console.log(this._http.get(`${baseUrl}/response/user/${user_id}`));
+    return this._http.get(`${baseUrl}/response/user/${user_id}`);
   }
+
+//   public getUserSurvey(user_id){
+//     console.log("From service");
+//     console.log(this._http.get(`${baseUrl}/survey/user/{user_id}`));
+//     return this._http.get(`${baseUrl}/survey/user/{user_id}`);
+// }
+
 }
