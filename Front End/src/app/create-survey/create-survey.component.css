@@ -1,6 +1,12 @@
 .container {
-    margin-left: 550px;
+  align-self: auto;
+    /* margin-left: 320px; */
   }
 .btn {
-    margin-left: 150px;
+  align-self: auto;
+    /* margin-left: 190px; */
+}
+
+.heading{
+  margin-left: 20px;
 }
