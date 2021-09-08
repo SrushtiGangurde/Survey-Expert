@@ -1,12 +1,9 @@
 <!-- For Heading -->
-<div class="text-center">
+
 <div class="mt-4">
-    <div class="row align-items-center">
-        <h2 class="text-center mt-4">Create New Survey</h2>
-    </div>    
+<h2 class="heading">Create New Survey</h2>  
 </div>
 <br/><br>
-</div>
 <div class="container" id="container">
     <form (ngSubmit)="addSurvey()">
     <mat-form-field appearance="outline">
@@ -26,7 +23,7 @@
       <mat-slide-toggle 
       [(ngModel)]="surveyData.status"
       name="status"
-      color="primary">Publish</mat-slide-toggle><br><br>
+      color="primary">Is the survey editable?</mat-slide-toggle><br><br>
                             <!-- routerLink="/addQuestions" -->
       <button mat-raised-button color="primary" class="btn" routerLink="'/newQuestion/'+survey_data.sid">Submit</button>
     </form>

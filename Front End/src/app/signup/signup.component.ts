@@ -2,6 +2,7 @@ import { validateVerticalPosition } from '@angular/cdk/overlay';
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { SignupService } from 'src/services/signup.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-signup',
@@ -55,14 +56,23 @@ export class SignupComponent implements OnInit {
     this.signupService.addUser(this.user).subscribe(
       (success) => {
         // success
-        console.log(success)
+        console.log(success)                         
         // alert("success");
-        this.snack.open("Successfully Signed Up!", 'OK', {duration:3000, verticalPosition:'top', horizontalPosition:'center'});
+        // this.snack.open("Successfully Signed Up!", 'OK', {duration:3000, verticalPosition:'top', horizontalPosition:'center'});
+        Swal.fire({
+          title: 'Sign Up successful!',
+        })
+        .then(function() {
+          window.location.href = "/login";
+      });
       },
       (error) => {
         // error
         console.log(error);
-        this.snack.open("Something went wrong!", 'OK', {duration:3000, verticalPosition:'top', horizontalPosition:'center'});
+        // this.snack.open("Something went wrong!", 'OK', {duration:3000, verticalPosition:'top', horizontalPosition:'center'});
+        Swal.fire({
+          title: 'Something went wrong!',
+        })
       }
     )
   }
