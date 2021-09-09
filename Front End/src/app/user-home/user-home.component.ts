@@ -4,6 +4,8 @@ import { survey } from 'src/model/survey';
 import { LoginService } from 'src/services/login.service';
 import { ViewResponseService } from 'src/services/view-response.service';
 import { Survey } from '../create-survey/data-models';
+import { DisplayQuestionServiceService } from '../services/display-question-service.service';
+import { ViewUserSurveysService } from '../services/view-user-surveys.service';
 
 @Component({
   selector: 'app-user-home',
@@ -21,8 +23,12 @@ export class UserHomeComponent implements OnInit {
   userDet;
   response;
   user_id;
+  SurveyData:any[]=[];
 
-  constructor(private _login:LoginService,private _viewResponse: ViewResponseService) { }
+  constructor(private _login:LoginService,
+    private _viewResponse: ViewResponseService,
+    private _display:ViewUserSurveysService
+    ) { }
 
   ngOnInit(){
     this._login.getCurrentUser().subscribe(
@@ -43,19 +49,29 @@ export class UserHomeComponent implements OnInit {
         this.surveys = data;
         for(this.i=0; this.i<this.surveys.length; this.i++){
           if(this.surveys[this.i].survey['status']){
-            this.previous[this.i] = this.surveys[this.i];
-            console.log(this.previous[this.i]);
+            this.previous[this.i] = this.surveys[this.i].survey['survey_id'];
+            //console.log(this.previous[this.i]);
           }
         }
 
         let uniqueItems = [...new Set(this.previous)];
-        console.log("Unique below");
-        console.log(uniqueItems);
-        
-         console.log(this.user_id);
-         console.log(this.surveys);
-         console.log("after service");
-  
+        //console.log("Unique below");
+        //console.log(uniqueItems);
+
+        //Calling Display Survey service
+        for(this.i=0;this.i<uniqueItems.length;this.i++){
+          //console.log(uniqueItems[this.i])
+          this._display.getUserSurvey(uniqueItems[this.i]).subscribe(
+            (data:any) => {
+              this.SurveyData=this.SurveyData.concat(data);
+              //console.log("Displaying Survey Data");
+              //console.log(this.SurveyData);
+            },
+            (error) => {
+              console.log(error);
+            }
+          );
+        }
       },
       (error) => {
         console.log(error);

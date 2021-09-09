@@ -11,8 +11,8 @@ export class ViewResponseService {
   constructor(private _http:HttpClient) { }
 
   public getUserResponse(user_id): Observable<any>{
-    console.log("From service");
-    console.log(this._http.get(`${baseUrl}/response/user/${user_id}`));
+    //console.log("From service");
+    //console.log(this._http.get(`${baseUrl}/response/user/${user_id}`));
     return this._http.get(`${baseUrl}/response/user/${user_id}`);
   }
 

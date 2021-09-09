@@ -10,27 +10,43 @@
       <a href="#" class="btn btn-primary">Review</a>
     </div>
   </div> -->
-  
-  <div class="container mt-4">
-    <div class="card">
-      <h4 class="card-header">Your Pending Surveys</h4>
-      <div class="card-body">
-        <div class="container mt-4">
-          <div *ngFor = "let survey of previous">
-            <div class="card my-2">
-              <div class="card-body">
-                <h5 class="card-title ">{{survey.name}}</h5>
-                <p class="card-text ">{{survey.description}}
-                  <span class=" position-absolute translate-middle-y end-0 mb-4">
-                  <a href="giveSurvey" class="btn btn-primary border-light border-2 mx-2" > Give Survey </a> 
+  <!-- <span class=" position-absolute translate-middle-y end-0 mb-4">
+                  <a [routerLink]="'../giveSurvey/'+s.survey_id + '/' + s.name" class="btn btn-primary border-light border-2 mx-2" > Give Survey </a> 
                 </span>
-              </p>
-              </div>
-            </div>
+-->
+  <div class="container mt-4">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+        Your Pending Surveys
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="container mt-4">
+          <div *ngFor = "let survey of SurveyData">
+            <mat-card>
+              <mat-card-header>      
+                <mat-card-title>
+                  <md-card-avatar class="material-icons">
+                    pending_actions
+                </md-card-avatar>
+                  {{survey.name | titlecase}}
+                </mat-card-title>
+                
+              </mat-card-header>
+              <mat-card-content>
+                  <mat-card-subtitle>{{survey.description | titlecase}}
+                    <a [routerLink]="'../giveSurvey/'+survey.survey_id + '/' + survey.name" 
+                    mat-raised-button color="primary" 
+                    class="border-2  position-absolute translate-middle-y end-0 mb-4 mr-4"
+                     > Give Survey </a> 
+                    </mat-card-subtitle>
+                </mat-card-content>
+            </mat-card><br><br>
           </div>
         </div>
-      </div>
-    </div>
+      </mat-card-content>
+    </mat-card>
   </div>
   
 
