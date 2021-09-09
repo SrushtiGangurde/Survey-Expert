@@ -4,6 +4,8 @@ import { survey } from 'src/model/survey';
 import { LoginService } from 'src/services/login.service';
 import { ViewResponseService } from 'src/services/view-response.service';
 import { Survey } from '../create-survey/data-models';
+import { DisplayQuestionServiceService } from '../services/display-question-service.service';
+import { ViewUserSurveysService } from '../services/view-user-surveys.service';
 
 @Component({
   selector: 'app-user-home',
@@ -14,16 +16,19 @@ import { Survey } from '../create-survey/data-models';
 export class UserHomeComponent implements OnInit {
 
   surveys;
-  surveyDet;
   previous = [];
+  uniqueItems = [];
   s;
   i;
   userDet;
   response;
   user_id;
-  sarray = [];
+  SurveyData:any[]=[];
 
-  constructor(private _login:LoginService,private _viewResponse: ViewResponseService) { }
+  constructor(private _login:LoginService,
+    private _viewResponse: ViewResponseService,
+    private _display:ViewUserSurveysService
+    ) { }
 
   ngOnInit(){
     this._login.getCurrentUser().subscribe(
@@ -37,6 +42,7 @@ export class UserHomeComponent implements OnInit {
     );
   }
   
+
   showSurveys(user_id){
     this._viewResponse.getUserResponse(user_id).subscribe(
       (data:any) => {
@@ -44,45 +50,33 @@ export class UserHomeComponent implements OnInit {
         for(this.i=0; this.i<this.surveys.length; this.i++){
           if(this.surveys[this.i].survey['status']){
             this.previous[this.i] = this.surveys[this.i].survey['survey_id'];
-            console.log(this.previous[this.i]);
+            //console.log(this.previous[this.i]);
           }
         }
-        let uniqueItems=[...new Set(this.previous)];
-        console.log(uniqueItems);
-         
-        for(this.i=0; this.i<uniqueItems.length; this.i++){
-          console.log("In loop");
-          // this.sarray[this.i] = this.showName(uniqueItems[this.i]);
-          console.log(this.showName(uniqueItems[this.i]));
-          
+
+        let uniqueItems = [...new Set(this.previous)];
+        //console.log("Unique below");
+        //console.log(uniqueItems);
+
+        //Calling Display Survey service
+        for(this.i=0;this.i<uniqueItems.length;this.i++){
+          //console.log(uniqueItems[this.i])
+          this._display.getUserSurvey(uniqueItems[this.i]).subscribe(
+            (data:any) => {
+              this.SurveyData=this.SurveyData.concat(data);
+              //console.log("Displaying Survey Data");
+              //console.log(this.SurveyData);
+            },
+            (error) => {
+              console.log(error);
+            }
+          );
         }
-
-        console.log("Sarray");
-        console.log(this.sarray);
-        
-
-
-         //console.log(this.surveys);
-         //console.log("after service");
       },
       (error) => {
         console.log(error);
       }
     );
-  }
+    }
 
-  showName(survey_id){
-    this._viewResponse.getSurveyById(survey_id).subscribe(
-      (data:any) => {
-        this.surveyDet = data;
-        console.log("Survey by id");
-        console.log(this.surveyDet);
-        this.sarray=this.sarray.concat(this.surveyDet);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-    
-  }
 }
