@@ -1,4 +1,4 @@
-<div class="container mt-4">
+<!-- <div class="container mt-4">
 <div class="card">
   <h4 class="card-header"> Surveys</h4>
   <div class="card-body">
@@ -14,16 +14,56 @@
 
               <a href="analysis" mat-raised-button color="primary" class="border-light border-2 mx-2" > View Analysis </a>    
               <a href="#" mat-raised-button color="primary" class=" mx-2"> Export Results </a>
-<!--               [routerLink]="'/giveSurvey/'+survey.survey_id"
- -->              <a  (click)="copyContent(survey.survey_id,survey.name)" mat-raised-button color="primary" class="border-light border-2 mx-2"> Copy Link </a>
+              [routerLink]="'/giveSurvey/'+survey.survey_id"
+              <a  (click)="copyContent(survey.survey_id,survey.name)" mat-raised-button color="primary" class="border-light border-2 mx-2"> Copy Link </a>
             </span>
           </p>
           </div>
         </div>
       </div>
       <br>
-<!--       <a class="btn btn-primary backBtn pull-left" type="button" href="adminHome">Back</a>
- -->  </div>
+      <a class="btn btn-primary backBtn pull-left" type="button" href="adminHome">Back</a>
+  </div>
 </div>
-</div>
+</div> -->
 
+
+
+<div class="container ">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+     <h3>Your Surveys</h3> 
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="container mt-4">
+        <div *ngFor = "let survey of surveys">
+          <mat-card>
+            <mat-card-header>      
+              <mat-card-title>
+                <span class="material-icons">
+                  fact_check
+                  </span>
+                {{survey.name | titlecase}}
+              </mat-card-title>
+              
+            </mat-card-header>
+            <mat-card-content>
+                <mat-card-subtitle>{{survey.description | titlecase}}
+                  <span class=" position-absolute translate-middle-y end-0 ">
+                    <a [routerLink]="'../displayQuestion/'+survey.survey_id + '/' + survey.name" mat-raised-button color="primary" class=" mx-2">  Questions </a>
+    
+                  <a href="analysis" mat-raised-button color="primary" class="border-light border-2 mx-2" > View Analysis </a>    
+                  <a href="#" mat-raised-button color="primary" class=" mx-2"> Export Results </a>
+    <!--               [routerLink]="'/giveSurvey/'+survey.survey_id"
+     -->              <a  (click)="copyContent(survey.survey_id,survey.name)" mat-raised-button color="primary" class="border-light border-2 mx-2"> Copy Link </a>
+                </span>
+                  </mat-card-subtitle>
+              </mat-card-content>
+          </mat-card><br><br>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

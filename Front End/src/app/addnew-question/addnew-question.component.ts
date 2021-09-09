@@ -52,7 +52,18 @@ export class AddnewQuestionComponent implements OnInit {
       Swal.fire('Error','Error while adding Question','error')
       console.log(error);
     }
+
     );
+
+    this.question ={ 
+      survey: {'survey_id':this.survey_id},
+      question_text :'',
+      answer_type :'',
+      option1 :'',
+      option2 :'',
+      option3 :'',
+      option4 :'',
+    }
   }
 
 
