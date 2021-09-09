@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { ClipboardService } from 'ngx-clipboard';
 import { survey } from 'src/model/survey';
 import { ViewSurveysService } from 'src/services/view-surveys.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-previous-survey',
@@ -45,8 +46,10 @@ export class PreviousSurveyComponent implements OnInit {
     this.text="http://localhost:4200/giveSurvey/"+surveyid+"/"+sname;
 
     this.clipboardService.copyFromContent(this.text)
-    this.snack.open(" Link  Copied!", 'OK', {duration:3000, verticalPosition:'top', horizontalPosition:'center'});
-
+    // this.snack.open(" Link  Copied!", 'OK', {duration:3000, verticalPosition:'top', horizontalPosition:'center'});
+    Swal.fire({
+      title: 'Link Copied!',
+    })
   }
 
 }

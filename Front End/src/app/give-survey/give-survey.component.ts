@@ -21,6 +21,7 @@ export class GiveSurveyComponent implements OnInit {
   i=0;
   j;
   q;
+  noQuest;
   current=0;
   response = {
     user : {},
@@ -62,6 +63,10 @@ export class GiveSurveyComponent implements OnInit {
   this._display.displayQuestion(survey_id).subscribe(
     (data:any) => {
       this.questions = data;
+      this.noQuest=this.questions.length;
+      console.log(this.noQuest)
+
+
         this.q = this.questions[this.current];
         //console.log(this.q);
       this.i=this.i+1;
@@ -173,5 +178,12 @@ export class GiveSurveyComponent implements OnInit {
       );
 
     }
+
+    Swal.fire({
+      title: 'Sign Up successful!',
+    })
+    .then(function() {
+      window.location.href = "/userHome";
+  });
   }
 }
