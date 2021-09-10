@@ -1,10 +1,20 @@
 <app-navbar></app-navbar>
 
 <div class="container mt-4">
+
     <div class="card">
       <h4 class="card-header">Analysis for your Survey</h4>
       <div class="card-body">
-        <a class="btn btn-primary backBtn pull-left" type="button" href="previousSurvey">Back</a>
-      </div>
-    </div>
+       
+         <a class="btn btn-primary backBtn pull-left" type="button" href="previousSurvey">Back</a>
+         &nbsp;&nbsp;
+        <button 
+        class="btn btn-primary backBtn pull-left"
+        (click)="download()"
+        >
+        Export To Excel
+        </button>
+
+        </div>
+    </div>          
 </div>
