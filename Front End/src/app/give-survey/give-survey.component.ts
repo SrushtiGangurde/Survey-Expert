@@ -180,7 +180,7 @@ export class GiveSurveyComponent implements OnInit {
     }
 
     Swal.fire({
-      title: 'Sign Up successful!',
+      title: 'Survey Saved Successfully!',
     })
     .then(function() {
       window.location.href = "/userHome";

@@ -22,22 +22,38 @@ export class LoginComponent implements OnInit {
     password : '',
   }
   previousRoute;
-
+  private previousUrl: string;
+  private currentUrl: string;
 
   constructor(private login : LoginService,
     private route: ActivatedRoute,
     private router:Router,
     private routerService: RouteService
-    ) { }
+    ) {
+
+      // this.currentUrl = this.router.url;
+      // this.previousUrl = null;
+
+      // this.router.events
+      //             .pipe(filter((event: RouterEvent) => event instanceof NavigationEnd))
+      //             .subscribe((event: NavigationEnd) => {
+      //                 this.previousUrl = this.currentUrl;
+      //                 this.currentUrl = event.urlAfterRedirects;
+      //                 console.log("prev: ", this.previousUrl)
+      //                 console.log("curr: ", this.currentUrl)
+      //             });
+
+     }
 
   ngOnInit(): void {
     this.routerService.loadRouting();
 
-    this.login.logout();
+    // this.login.logout();
 
     this.previousRoute = this.routerService.getPreviousUrl();
     console.log(this.previousRoute);
-    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
+    // this.previousRoute = '/giveSurvey'
+    this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/giveSurvey/1/survey 1';
     console.log(this.returnUrl);
 
   }
@@ -72,7 +88,7 @@ export class LoginComponent implements OnInit {
                 {
                   // rdirect : user dashboard
                   if (this.previousRoute.includes('giveSurvey')==true){
-                    this.router.navigateByUrl(this.previousRoute);
+                    this.router.navigateByUrl(this.returnUrl);
                   }
                   else{
                   window.location.href = "/userHome"
