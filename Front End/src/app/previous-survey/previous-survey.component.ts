@@ -3,8 +3,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { ClipboardService } from 'ngx-clipboard';
 import { survey } from 'src/model/survey';
+import { ExportExcelService } from 'src/services/export-excel.service';
 import { ViewSurveysService } from 'src/services/view-surveys.service';
 import Swal from 'sweetalert2';
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-previous-survey',
@@ -21,7 +23,16 @@ export class PreviousSurveyComponent implements OnInit {
   public errorMsg: any;
   survey_id = 0;
   text;
-  constructor(private _view: ViewSurveysService,private _route:ActivatedRoute,private clipboardService: ClipboardService,private snack:MatSnackBar) { }
+  constructor(private _view: ViewSurveysService,
+    private _route:ActivatedRoute,
+    private clipboardService: ClipboardService,
+    private snack:MatSnackBar,
+    private excelService : ExportExcelService) { }
+
+
+
+
+
   ngOnInit() {
 
     this.survey_id=this._route.snapshot.params.sid;
@@ -50,6 +61,19 @@ export class PreviousSurveyComponent implements OnInit {
     Swal.fire({
       title: 'Link Copied!',
     })
+  }
+
+
+
+  download(){
+
+    Swal.fire({
+      title: 'File Exported!',
+    })
+
+    this.excelService.
+    downloadFile().
+    subscribe(Blob => saveAs(Blob, "response.xlsx"))
   }
 
 }
