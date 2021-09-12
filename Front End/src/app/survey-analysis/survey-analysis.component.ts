@@ -15,11 +15,11 @@ export class SurveyAnalysisComponent implements OnInit {
   ngOnInit(): void {
 
   }
-  download(){
-    this.excelService.
-    downloadFile().
-    subscribe(Blob => saveAs(Blob, "response.xlsx"))
-  }
+  // download(){
+  //   this.excelService.
+  //   downloadFile().
+  //   subscribe(Blob => saveAs(Blob, "response.xlsx"))
+  // }
 
 }
 
