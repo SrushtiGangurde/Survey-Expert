@@ -10,3 +10,9 @@
 .heading{
   margin-left: 20px;
 }
+
+.mainBackground {
+  background-color: white;
+  height: auto;
+  display: flex;
+}

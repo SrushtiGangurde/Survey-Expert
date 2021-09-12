@@ -5,3 +5,9 @@
   height: 1px;
   background: #eee;
 }
+
+.mainBackground {
+  background-color: white;
+  height: auto;
+  display: flex;
+}

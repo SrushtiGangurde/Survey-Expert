@@ -34,4 +34,8 @@
     background-color: #3887fd;
   }
   
-  
+  .mainBackground {
+    background-color: white;
+    height: auto;
+    display: flex;
+  }
