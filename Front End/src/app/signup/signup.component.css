@@ -3,5 +3,17 @@
   content: "";
   flex: 1;
   height: 1px;
-  background: #eee;
+  background: rgb(168, 208, 247);
+}
+
+.border{
+  
+  /* background-color: #D6F9EF; */
+  background-color: #d0fdff;
+}
+
+.mycolour{
+  background-color: #006aad;
+  color: #eee;
+
 }
