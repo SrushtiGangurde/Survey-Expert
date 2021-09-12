@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LoginService } from 'src/services/login.service';
 import { Router, ActivatedRoute,RouterEvent,NavigationEnd } from '@angular/router';
 import { filter, pairwise } from 'rxjs/operators';
+import { FormsModule } from '@angular/forms';
 
 import { SignupService } from 'src/services/signup.service';
 import { RouteService } from '../route.service';
