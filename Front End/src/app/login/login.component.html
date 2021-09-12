@@ -13,7 +13,7 @@
   <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
 
   <form (ngSubmit) = "onSignIn()">
-    <mat-form-field appearance="outline" style="width: 300px;">
+    <mat-form-field appearance="fill" style="width: 300px;">
 
     <mat-label>Email Id</mat-label>
         <input 
@@ -23,7 +23,7 @@
         matInput pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" required>
     </mat-form-field><br/>
 
-    <mat-form-field appearance="outline" style="width: 300px;">
+    <mat-form-field appearance="fill" style="width: 300px;">
       <mat-label>Password</mat-label>
       <input
       [(ngModel)]="credentials.password"
