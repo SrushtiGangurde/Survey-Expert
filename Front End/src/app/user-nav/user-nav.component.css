@@ -14,3 +14,9 @@
     /* justify-content: center; */
     width: 120px;
   }
+
+  .mainBackground {
+    background-color: white;
+    height: auto;
+    display: flex;
+  }

@@ -2,3 +2,9 @@
     margin-right: 6px;
 
 }
+
+.mainBackground {
+    background-color: white;
+    height: auto;
+    display: flex;
+  }

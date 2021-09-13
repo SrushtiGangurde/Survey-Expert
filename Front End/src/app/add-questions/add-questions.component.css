@@ -4,3 +4,9 @@
 .mt20{
     margin-top: 20px;
 }
+
+.mainBackground {
+    background-color: white;
+    height: auto;
+    display: flex;
+  }
