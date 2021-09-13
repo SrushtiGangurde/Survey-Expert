@@ -13,18 +13,40 @@ html,body {   background-color:rgb(26, 109, 145); }
     margin-left: 5px;
 }
 .ml15{
+    align-self: auto;
     margin-left: 15px;;
 }
 .ml20{
-    margin-left: 550px;
+    margin-left: 40%;
+    /* align-self: auto; */
 }
 .border{
     border-bottom: 2px;
     font-size: 15px;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3c75eab5bd06ecfbed3e71843a7187cc4dc95aa2
+.ml45{
+    margin-left: 45%;
+}
+
+.mt10{
+    margin-left: 45%;
+    margin-top: 3%;
+}
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3c75eab5bd06ecfbed3e71843a7187cc4dc95aa2
 .mainBackground {
     background-color: white;
     height: auto;
     display: flex;
   }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3c75eab5bd06ecfbed3e71843a7187cc4dc95aa2
