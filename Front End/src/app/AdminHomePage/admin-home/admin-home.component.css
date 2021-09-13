@@ -1,3 +1,7 @@
-.c{
-    margin-left: 30%;
-}
+
+.mainBackground {
+    background-color: white;
+    height: auto;
+    display: flex;
+  }
+

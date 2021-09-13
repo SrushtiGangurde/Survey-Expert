@@ -3,6 +3,13 @@
   content: "";
   flex: 1;
   height: 1px;
+  background: #eee;
+}
+
+.mainBackground {
+  background-color: white;
+  height: auto;
+  display: flex;
   background: rgb(168, 208, 247);
 }
 

@@ -25,6 +25,7 @@ html,body {   background-color:rgb(26, 109, 145); }
     font-size: 15px;
 }
 
+
 .ml45{
     margin-left: 45%;
 }
@@ -33,3 +34,10 @@ html,body {   background-color:rgb(26, 109, 145); }
     margin-left: 45%;
     margin-top: 3%;
 }
+
+.mainBackground {
+    background-color: white;
+    height: auto;
+    display: flex;
+  }
+

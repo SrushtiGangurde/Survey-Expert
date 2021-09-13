@@ -8,3 +8,9 @@
     width: 100%;
   }
   
+
+  .mainBackground {
+    background-color: white;
+    height: auto;
+    display: flex;
+  }

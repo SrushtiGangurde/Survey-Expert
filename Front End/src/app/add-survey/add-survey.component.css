@@ -4,3 +4,9 @@
 .lm100{
     margin-left: 100px;
 }
+
+.mainBackground {
+    background-color: white;
+    height: auto;
+    display: flex;
+  }
