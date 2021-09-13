@@ -3,3 +3,8 @@
     height: auto;
     display: flex;
   }
+
+  .bg{
+    background-color:#d0fdff;
+    height: 100%;
+  }
