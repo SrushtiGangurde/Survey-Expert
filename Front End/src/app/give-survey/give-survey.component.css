@@ -32,7 +32,7 @@ html,body {   background-color:rgb(26, 109, 145); }
 
 .mt10{
     margin-left: 45%;
-    margin-top: 3%;
+    /* margin-top: 3%; */
 }
 .mainBackground {
     background-color: white;

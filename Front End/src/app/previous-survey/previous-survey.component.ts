@@ -79,10 +79,6 @@ export class PreviousSurveyComponent implements OnInit {
 
 
   download(surveyid){
-    
-    Swal.fire({
-      title: 'File Exported!',
-    })
 
     this.excelService.generateResponseId(surveyid).subscribe(
       (data) => {
@@ -107,5 +103,9 @@ export class PreviousSurveyComponent implements OnInit {
           subscribe(Blob => saveAs(Blob, "response.xlsx"))
       },
     );
+
+    Swal.fire({
+      title: 'File Exported!',
+    })
   }
 }

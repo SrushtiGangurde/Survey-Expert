@@ -74,8 +74,9 @@
     </mat-card-content>
     
     </mat-card></div><br><br>
-    <button class="ml45" mat-raised-button color="primary" (click)="SaveResponse()">Save Survey</button>
-    <div *ngIf="current==noQuest">
+    <div *ngIf="current!=noQuest-1">
+    <button class="ml45" mat-raised-button color="primary" (click)="SaveResponse()">Save Survey</button></div>
+    <div *ngIf="current==noQuest-1">
         <button class="mt10" mat-raised-button color="primary" (click)="SaveResponse()">Finish Survey</button>
     </div>
     </div>
